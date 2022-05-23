@@ -15,6 +15,33 @@
                 shareScore();
             }
         </script>
+
+<style>
+    .color{
+        display:none;
+    }
+    .red{
+        background-color: red !important;
+    }
+    .blue{
+        background-color: blue !important;
+    }
+    .green{
+        background-color: green !important;
+    }
+    .yellow{
+        background-color: yellow !important;
+    }
+    .orange{
+        background-color: orangered !important;
+    }
+    .pink{
+        background-color: hotpink !important;
+    }
+    .purple{
+        background-color: purple !important;
+    }
+</style>
     
     </head>
 
@@ -31,7 +58,17 @@
                     <div class="time-content"> <h2 >Tiempo: </h2></div>
                     <div class="time-content"> <input type="text" id="Tiempo" ></div>
                 
-                    <div class="time-content colores"> </div>
+                    <div id="colors" class="time-content colores"> 
+                        <div class="time-content ">
+                            <h2 id="rojo" class="color" style="color:'red';">ROJO </h2>
+                            <h2 id="azul" class="color" style="color:'blue';">AZUL </h2>
+                            <h2 id="amarillo" class="color" style="color:'yellow';">AMARILLO </h2>
+                            <h2 id="morado" class="color" style="color:'purple';">MORADO </h2>
+                            <h2 id="verde" class="color" style="color:'green';">VERDE </h2>
+                            <h2 id="rosa" class="color" style="color:'pink';">ROSA </h2>
+                            <h2 id="naranja" class="color" style="color:'orange';">NARANJA </h2>
+                         </div>
+                    </div>
                 
                 </div>
 
@@ -78,7 +115,7 @@
                                 <div  class=" col-6 col-md-4" data-value="0">
                                     <div class=" btn-design">
                                      
-                                        <input  class="btn-design btn-design_audio dos"type="image" src="../img/reiniciar_btn.png" onclick="location.href='./level_01.html'">
+                                        <input  class="btn-design btn-design_audio dos"type="image" src="../img/reiniciar_btn.png" onclick="location.href='./level_02_solo.html'">
                                         <input  class="btn-design btn-design_audio tres"type="image" src="../img/home_btn.png" onclick="location.href='./principal.html'">
                                         <input  class="btn-design btn-design_audio tres"type="image" src="../img/compartir_btn.png" onclick="shareFB();">
                                         

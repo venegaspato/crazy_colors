@@ -1,4 +1,3 @@
-
 import LocalStorage  from '../Functions/localStorage.js';
 
 var music = new Audio();

@@ -527,7 +527,7 @@ function onStart(){
     onStartPlayer();
     onStartEnemy();
     setInterval(function(){
-        random(0,6)
+        color(0,6)
     },10000);
     camera.position.y = 30;
     camera.rotation.x = THREE.Math.degToRad(-25);
@@ -678,23 +678,141 @@ function onUpdatePlayer2(dt){
 				
     }
    
+    
 }
-function random(min, max) {
-    var random= Math.floor((Math.random() * (max - min + 1)) + min);
-    for (var i=0 ; i<7; i++ ){
-        if(i != random){
-            var plataforma= scene.getObjectByName(i.toString());
-            removePlataforma(plataforma);
-            console.log(random);
-        }
-        
+
+function color(min, max){
+
+    var rand= Math.floor((Math.random() * (max - min + 1)) + min);
+    if(rand==0){
+        $("#colors").addClass("yellow");
+        $("#colors").removeClass("red"); 
+        $("#colors").removeClass("green");
+        $("#colors").removeClass("purple");
+        $("#colors").removeClass("blue"); 
+        $("#colors").removeClass("pink");
+        $("#colors").removeClass("orange");
+        $("#amarillo").fadeIn();
+        $("#azul").hide();
+        $("#morado").hide();
+        $("#naranja").hide();
+        $("#rojo").hide();
+        $("#rosa").hide();
+        $("#verde").hide();
+
+    }else if (rand==1 ){ 
+        $("#colors").addClass("blue");
+        $("#colors").removeClass("red"); 
+        $("#colors").removeClass("green");
+        $("#colors").removeClass("purple");
+        $("#colors").removeClass("yellow"); 
+        $("#colors").removeClass("pink");
+        $("#colors").removeClass("orange");
+        $("#azul").fadeIn();
+        $("#amarillo").hide();
+        $("#morado").hide();
+        $("#naranja").hide();
+        $("#rojo").hide();
+        $("#rosa").hide();
+        $("#verde").hide();
+    }else if(rand==2){
+        $("#colors").addClass("purple");
+        $("#colors").removeClass("red"); 
+        $("#colors").removeClass("green");
+        $("#colors").removeClass("blue");
+        $("#colors").removeClass("yellow"); 
+        $("#colors").removeClass("pink");
+        $("#colors").removeClass("orange");
+        $("#morado").fadeIn();
+        $("#azul").hide();
+        $("#amarillo").hide();
+        $("#naranja").hide();
+        $("#rojo").hide();
+        $("#rosa").hide();
+        $("#verde").hide();
+    }else if(rand==3){
+        $("#colors").addClass("orange");
+        $("#colors").removeClass("red"); 
+        $("#colors").removeClass("green");
+        $("#colors").removeClass("purple");
+        $("#colors").removeClass("yellow"); 
+        $("#colors").removeClass("pink");
+        $("#colors").removeClass("blue");
+        $("#naranja").fadeIn();
+        $("#morado").hide();
+        $("#azul").hide();
+        $("#amarillo").hide();
+        $("#rojo").hide();
+        $("#rosa").hide();
+        $("#verde").hide();
+    }else if(rand==4){
+        $("#colors").addClass("red");
+        $("#colors").removeClass("blue"); 
+        $("#colors").removeClass("green");
+        $("#colors").removeClass("purple");
+        $("#colors").removeClass("yellow"); 
+        $("#colors").removeClass("pink");
+        $("#colors").removeClass("orange");
+        $("#rojo").fadeIn();
+        $("#naranja").hide();
+        $("#morado").hide();
+        $("#azul").hide();
+        $("#amarillo").hide();
+        $("#rosa").hide();
+        $("#verde").hide();
+    } else if(rand==5){
+        $("#colors").addClass("pink");
+        $("#colors").removeClass("red"); 
+        $("#colors").removeClass("green");
+        $("#colors").removeClass("purple");
+        $("#colors").removeClass("yellow"); 
+        $("#colors").removeClass("blue");
+        $("#colors").removeClass("orange");
+        $("#rosa").fadeIn();
+        $("#rojo").hide();
+        $("#naranja").hide();
+        $("#morado").hide();
+        $("#azul").hide();
+        $("#amarillo").hide();
+        $("#verde").hide();
+    } else if(rand==6){
+        $("#colors").addClass("green");
+        $("#colors").removeClass("red"); 
+        $("#colors").removeClass("blue");
+        $("#colors").removeClass("purple");
+        $("#colors").removeClass("yellow"); 
+        $("#colors").removeClass("pink");
+        $("#colors").removeClass("orange");
+        $("#verde").fadeIn();
+        $("#rosa").hide();
+        $("#rojo").hide();
+        $("#naranja").hide();
+        $("#morado").hide();
+        $("#azul").hide();
+        $("#amarillo").hide();
     }
     setTimeout(function(){
-        addRandom(random)
-    },5000)
-    
-    
+        random(rand)
+    },10000);
+
 }
+
+function random(rand) {
+    for (var i=0 ; i<7; i++ ){
+        if(i != rand){
+            var plataforma= scene.getObjectByName(i.toString());
+            removePlataforma(plataforma);
+            console.log(rand);
+        }
+
+    }
+    setTimeout(function(){
+        addRandom(rand)
+    },5000)
+
+
+}
+
 function addRandom(random){
     for (var i=0 ; i<7; i++ ){
         if(i!=random){

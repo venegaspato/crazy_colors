@@ -1,3 +1,4 @@
+
 class LocalStorage{
     static read(){
         let configuracion = null
@@ -12,12 +13,12 @@ class LocalStorage{
         let jsonString = null;
 
         if(configuracion.Musica !== undefined && configuracion.Coop !== undefined)
-        jsonString = `{"Musica" : "${configuracion.Musica}", "Coop" : "${configuracion.Coop}"}`;
+        jsonString = {"Musica" : "${configuracion.Musica}", "Coop" : "${configuracion.Coop}"};
         else if(configuracion.Musica !== undefined && configuracion.Coop === undefined)
-        jsonString = `{"Musica" : "${configuracion.Musica}", "Coop" : "false"}`;
+        jsonString = {"Musica" : "${configuracion.Musica}", "Coop" : "false"};
         else if(configuracion.Musica === undefined && configuracion.Coop !== undefined)
-        jsonString = `{"Musica" : "false", "Coop" : "${configuracion.Coop}"}`;
-        
+        jsonString = {"Musica" : "false", "Coop" : "${configuracion.Coop}"};
+
 
         localStorage.setItem("Configuracion", jsonString);
     }
