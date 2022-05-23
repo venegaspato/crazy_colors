@@ -1,0 +1,29 @@
+.group{
+    position:relative;
+  }
+.multiJugadorLVL1_inactivo{
+    display: none!important ;
+  }
+
+  .multiJugadorLVL2_inactivo{
+    display: none!important ;
+  }
+  .solitarioLVL1_inactivo{
+    display: none!important ;
+  }
+  .solitarioLVL2_inactivo{
+    display: none!important ;
+  }
+  .multiJugadorLVL1{
+    display: block ;
+  }
+
+  .multiJugadorLVL2{
+    display: block;
+  }
+  .solitarioLVL1{
+    display: block;
+  }
+  .solitarioLVL2{
+    display: block;
+  }

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset='utf-8'>
+        <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+        <title>CRAZY COLORS | LEVEL 01</title>
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+        <link rel='stylesheet' type='text/css' media='screen' href='../game.css'>
+
+        <script type="text/javascript" src="../js/Functions/mifacebook.js"></script>
+        <script type="text/javascript">
+            function shareFB() {
+                
+                shareScore();
+            }
+        </script>
+
+        </head>
+    <body>
+        <div class="contenido-general">
+
+            <center>
+            <div class="instrucciones">
+                <div class="instrucciones_p1">
+                    <img src="../img/Player1.png" class="instrucciones-image" alt="">
+                </div>
+
+                <div class="time-section">
+                    <div class="time-content"> <h2 >Tiempo: </h2></div>
+                    <div class="time-content"> <input type="text" id="Tiempo" ></div>
+                
+                    <div class="time-content colores"> </div>
+                
+                </div>
+
+                <div class="instrucciones_p2">
+                    <img src="../img/Player2.png" class="instrucciones-image" alt="">
+                </div>
+            </div>
+
+            <input id="btn_pause" class="btn_pausa"type="image" src="../img/pausa_btn.png">
+
+
+            <div id="pause" class="pausa_container">
+                <div class="container1 ">
+                    <div class="section">
+                       
+                                <div class="pausa-img" >
+                                    <img class="logo-pausa" src="../img/pausa_btn.png" class="logo" alt="">
+                                </div>
+                                
+                         
+                                <div class=" col-6 col-md-4" data-value="0">
+                                    <div class=" btn-design">
+                                        <input id="btn_continuar" class="btn-design btn-design_audio uno  "type="image" src="../img/continuar_btn.png" >
+                                        <input  class="btn-design btn-design_audio dos"type="image" src="../img/reiniciar_btn.png" onclick="location.href='./level_01.html'">
+                                        <input  class="btn-design btn-design_audio dos"type="image" src="../img/home_btn.png" onclick="location.href='./principal.html'">
+                                      
+                                
+                                        
+                                    </div>
+                                </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="game_over" class="gameover_container">
+                <div class="container2 ">
+                    <div class="section">
+                       
+                                <div class="pausa-img" >
+                                    <img class="logo-gameover" src="../img/gameover.png" class="logo" alt="">
+                                </div>
+                                
+                         
+                                <div  class=" col-6 col-md-4" data-value="0">
+                                    <div class=" btn-design">
+                                     
+                                        <input  class="btn-design btn-design_audio dos"type="image" src="../img/reiniciar_btn.png" onclick="location.href='./level_01.html'">
+                                        <input  class="btn-design btn-design_audio tres"type="image" src="../img/home_btn.png" onclick="location.href='./principal.html'">
+                                        <input  class="btn-design btn-design_audio tres"type="image" src="../img/compartir_btn.png" onclick="shareFB();">
+                                        
+                                    </div>
+                                </div>
+                    </div>
+                </div>
+            </div>
+
+            
+
+         
+      
+            <div class="videogame-section">
+                <div class="game-section">  
+                    <script type="module" src="../js/level/level_01.js"></script>
+                </div>
+            </div>
+        </center>
+            </div>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <script type="text/javascript">
+                    var pauseState = false;
+            $(document).keyup(function(e){
+                if (e.key === "Escape" ) {
+                    if (!pauseState) {
+                        $("#pause").fadeIn();
+                        
+                    pauseState = true;
+                    } else{
+                        $("#pause").hide();
+                    }
+                }
+            });
+            $("#btn_pause").click(function(){
+                $("#pause").fadeIn();
+            });
+            $("#btn_continuar").click(function(){
+                $("#pause").hide();
+            });
+
+	 
+        </script>
+    </body>
+
+</html>

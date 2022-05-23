@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Videojuego</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='../style.css'>
+    
+    <link rel='stylesheet' type='text/css' media='screen' href='../styleAjustesNivel.css'>
+    
+</head>
+
+<body>
+    
+    <audio id="btnAudio" src="../music/button .mp3" ></audio>
+    <div class="container">
+        
+        <div class="object center" data-value="1">
+            <h3 class="outline object " data-value="3">Antes de jugar </h3>
+            <div class="level-box">
+
+                <div class="container">
+                    <form id = "formAjustes" action="#" method="post" >
+
+                        <br>
+                <label>Elige un nivel</label>
+                <br>
+                        <div class="toggle-radio_lvl">
+                            <input type="radio" name="lvl" id="n1" checked>
+                            <input type="radio" name="lvl" id="n2">
+                            <div class="switch_lvl">
+                              <label for="n1">NIVEL 1  </label>
+                              <label for="n2"> NIVEL 2  </label>
+                              
+                            </div>
+                        </div>
+<!--
+                       
+                        <div class="grid toggle-radio">
+                            <div class="level-selector">
+                            <label>
+                              <input type="radio" name="level" value="nivel1"checked> NIVEL 1
+                            </label>
+                            </div>
+                            <div class="level-selector">
+                            <label>
+                              <input type="radio" name="level" value="nivel2"> NIVEL 2
+                            </label>
+                            </div>
+                        </div>
+                    -->
+                       
+
+    
+                    <div class="toggle-radio">
+                        <input type="radio" name="rdo" id="yes" checked>
+                        <input type="radio" name="rdo" id="no">
+                        <div class="switch">
+                          <label for="yes">Solitario</label>
+                          <label for="no">Multijugador</label>
+                          
+                        </div>
+                    </div>
+                    <!--
+                    <div class="level-box">
+                        <input type="text" class="player-name" id="player1" placeholder="Jugador 1" >   
+                        <input type="text" class="player-name" id="player2" placeholder="Jugador 2" >  
+                 
+                    </div>
+                    -->
+
+                    </form>
+
+                    <!--
+                <label>Escoje un nivel</label>
+                <br>
+                    <button class="btn-level uno" > <span>nivel 1</span></button>
+                    <button class="btn-level uno" ><span>nivel 2</span></button>
+         
+                    -->
+            
+            <!-- <button class="btn uno back" onclick="location.href='./level_02.html'" data-value="-6"><span>Comenzar el juego</span></button> -->
+            <div class="group">
+                    <div id="group_1" class="btn-contenedor multiJugadorLVL1_inactivo">
+                        <input  class="btn-design2 btn-design_audio uno"type="image" src="../img/play_btn.png" onclick="location.href='./level_01.html'">
+                        <input  class="btn-design2 btn-design_audio uno"type="image" src="../img/back_btn.png" onclick="location.href='./principal.html'">
+                </div>
+
+                    <div id="group_2"class="btn-contenedor multiJugadorLVL2_inactivo">
+                        <input  class="btn-design2 btn-design_audio uno"type="image" src="../img/play_btn.png" onclick="location.href='./level_02.html'">
+                        <input  class="btn-design2 btn-design_audio uno"type="image" src="../img/back_btn.png" onclick="location.href='./principal.html'">
+                </div>
+                
+                <!--AQUI VA SOLITARIO NIVEL 1 PONERLO EN LUGAR DE el #-->
+                    <div id="group_3"class="btn-contenedor solitarioLVL1">
+                        <input  class="btn-design2 btn-design_audio uno"type="image" src="../img/play_btn.png" onclick="location.href='./level_01_solo.html'">
+                        <input  class="btn-design2 btn-design_audio uno"type="image" src="../img/back_btn.png" onclick="location.href='./principal.html'">
+                </div>
+                <!--AQUI VA SOLITARIO NIVEL 2 PONERLO EN LUGAR DE el #-->
+                <div id="group_4" class="btn-contenedor solitarioLVL2_inactivo">
+                    <input  class="btn-design2 btn-design_audio uno"type="image" src="../img/play_btn.png" onclick="location.href='./level_02_solo.html'">
+                    <input  class="btn-design2 btn-design_audio uno"type="image" src="../img/back_btn.png" onclick="location.href='./principal.html'">
+                </div>
+                <!-- <button class="btn uno back" onclick="location.href='./principal.html'" data-value="-6"><span>Regresar el menu</span></button> -->
+            </div>
+        </div>
+
+        <img src="../img/1.1.png" class="object" data-value="-50" alt="">
+        <img src="../img/2.1.png" class="object" data-value="46" alt="">
+        <img src="../img/3.1.png" class="object" data-value="55"  alt="">
+
+
+    </div>
+     
+    <script type="text/javascript">
+        document.addEventListener("mousemove", parallax);
+        function parallax(e){
+            document.querySelectorAll(".object").forEach(function(move){
+                var moving_valor= move.getAttribute("data-value");
+                var x=(e.clientX * moving_valor) / 250;
+                var y=(e.clientY * moving_valor) / 250;
+                
+                move.style.transform = "translateX(" + x + "px) translateY(" + y + "px)";
+            });
+        }
+
+        
+
+    </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src = "https://cdnjs.cloudflare.com/ajax/libs/howler/2.1.1/howler.js"></script>
+    
+    <script  type="module"  src="../js/Functions/musicPrincipal.js"></script>
+    
+    <script  type="text/javascript"  src="../js/Functions/AjustesNivel.js"></script>
+
+</body>
+
+</html>

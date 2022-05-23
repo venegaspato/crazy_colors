@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Videojuego</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='../style.css'>
+    <script type="text/javascript" src="../js/libreriasThree.js-master/three2.js"></script>
+    
+</head>
+
+<body>
+    
+   
+    <div class="grid container">
+        <div class="section">
+<center>
+        <div class="logo-img col-12 col-md-8">
+            <img class="logo" src="../img/CRAZYCOLORS.png" class="logo" alt="">
+        </div>
+        
+    </center>
+        <div class="object .col-6 .col-md-4" data-value="0">
+            <div class=" btn-design">
+                <input  class="btn-design btn-design_audio uno  "type="image" src="../img/play_btn.png" onclick="location.href='./menu.html'">
+                <input  class="btn-design btn-design_audio dos"type="image" src="../img/ajustes_btn.png" onclick="location.href='./ajustes.html'">
+                <input  class="btn-design btn-design_audio tres"type="image" src="../img/puntuaciones_btn.png" onclick="location.href='./scores.html'">
+        
+                <!--
+                <button class="btn uno" onclick="location.href='./menu.html'"> <span>jugar</span></button>
+                <button class="btn uno" onclick="location.href='./scores.html'"><span>puntuaciones</span></button>
+                <button class="btn uno" onclick="location.href='./ajustes.html'"><span>ajustes</span></button>
+                -->
+            </div>
+        </div>
+
+        
+    </div>
+
+        <img src="../img/1.1.png" class="object" data-value="-50" alt="">
+        <img src="../img/2.1.png" class="object" data-value="46" alt="">
+        <img src="../img/3.1.png" class="object" data-value="55" alt="">
+    </div>
+    <!--<audio id="btnAudio" src="../music/button.mp3"></audio>-->
+    <script type="text/javascript">
+        document.addEventListener("mousemove", parallax);
+        function parallax(e){
+            document.querySelectorAll(".object").forEach(function(move){
+                var moving_valor= move.getAttribute("data-value");
+                var x=(e.clientX * moving_valor) / 250;
+                var y=(e.clientY * moving_valor) / 250;
+                
+                move.style.transform = "translateX(" + x + "px) translateY(" + y + "px)";
+            });
+        }
+
+    </script>
+   
+     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+     <script src = "https://cdnjs.cloudflare.com/ajax/libs/howler/2.1.1/howler.js"></script>
+     <script  type="module"  src="../js/Functions/musicPrincipal.js"></script>
+
+    
+</body>
+<footer>
+</footer>
+
+</html>

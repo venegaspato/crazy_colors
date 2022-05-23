@@ -1,0 +1,185 @@
+*{
+    font-family: 'Chewy', cursive;
+}
+body{
+    background:url(./img/body_bg2.jpg);
+
+}
+
+ .contenido-general{
+    /*display: none;*/
+    margin: auto;
+    display: block;
+} 
+
+.videogame-section{
+    display: flex;
+    justify-content: center;
+    width: 100% !important;
+    height: 100% !important;
+}
+.time-section{
+    background-color : transparent;
+padding: 0px;
+    display: block;
+    justify-content: center;
+    height: 100px;
+
+}
+.time-content{
+    color: white;
+    padding: 0px;
+    margin: 0px;
+
+}
+
+.time-content h2{
+    margin-bottom:0rem;
+    font-size: 20px ;
+}
+
+.time-content input{
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 40px;
+    margin: 0 auto;
+    padding: 0px;
+    margin: 1px;
+    max-width: 80px;
+    text-align: center;
+
+}
+
+.colores{
+    margin-top: 1rem;
+ text-align: center;
+    width: 150px;
+    height: 50px;
+    border-radius: 5rem;
+    background-color: rgb(255, 0, 149);
+    font-size: 30px;
+}
+
+
+
+.instrucciones{
+    display: flex;
+    justify-content: center;
+    height:200px;
+    position: absolute;
+    padding: 1rem;
+}
+.instrucciones-image{
+    width: 40%;
+}
+
+.instrucciones_p1{
+    padding: 1px;
+
+}
+.instrucciones_p2{
+    padding: 1px;
+ 
+}
+
+
+.game-section{
+  padding: 0px;
+  background-color: #000;
+  margin: 0;
+  height: 100% !important;
+  width: 100% !important;
+  overflow-y: auto;
+  overflow-x: auto;
+}
+
+
+
+.btn_pausa{
+  position: absolute;  
+  bottom: 2rem;
+  right: 2rem;
+  width: 60px;
+  height: 60px;
+}
+
+
+
+.pausa_container{
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin-top: 0;
+    top: 2px;
+     left: 0;
+     background:rgba(0, 183, 255, 0.253); 
+}
+.container1{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+
+}
+
+.grid{
+    display: flex !important;
+}
+
+.pausa-img{
+    margin: auto;
+  padding-top: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-design {
+    margin: auto;
+    width: 42%;
+    display: grid;
+    
+}
+
+.logo-pausa{
+    width: 300px;
+    margin: auto;
+}
+
+
+.gameover_container{
+   display:none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin-top: 0;
+    top: 2px;
+     left: 0;
+     background:rgba(255, 0, 0, 0.253); 
+}
+.container2{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+
+}
+
+.logo-gameover{
+    width: 800px;
+    margin: auto;
+    margin-bottom: 3rem;
+}
+
+.lvl2{
+    width: 100%;
+    height: 100%;
+}

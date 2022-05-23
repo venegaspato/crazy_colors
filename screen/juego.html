@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>CRAZYCOLORS</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='../style.css'>
+    
+</head>
+
+<body>
+    <div class="pausa_container">
+        <div class="container">
+            
+            <div class="object" data-value="1">
+                <h2 class="object" data-value="3"> <span class="title-name">CRAZY COLORS</span></h2>
+                <button class="btn uno" onclick="location.href='../screen/pausa.html'"><span>Pausa</span></button>
+                
+            </div>
+
+            <img src="../img/1.png" class="object" data-value="-2" alt="">
+            <img src="../img/2.png" class="object" data-value="9" alt="">
+            <img src="../img/3.png" class="object" data-value="-6" alt="">
+
+
+        </div>
+
+        <script type="text/javascript">
+            document.addEventListener("mousemove", parallax);
+            function parallax(e){
+                document.querySelectorAll(".object").forEach(function(move){
+                    var moving_valor= move.getAttribute("data-value");
+                    var x=(e.clientX * moving_valor) / 250;
+                    var y=(e.clientY * moving_valor) / 250;
+                    
+                    move.style.transform = "translateX(" + x + "px) translateY(" + y + "px)";
+                });
+            }
+
+        </script>
+    </div>
+</body>
+
+</html>
