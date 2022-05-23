@@ -19,7 +19,7 @@ window.fbAsyncInit = function() {
 function shareScore() {
   FB.ui({
     method: 'share',
-    href: 'https://google.com',
+    href: 'http://137.184.187.82/plesk-site-preview/affectionate-shamir.137-184-187-82.plesk.page/https/137.184.187.82/screen/principal.html',
     hashtag: "#CrazyColors",
     quote: "¡Juguemos juntos!" 
   }, function(response){});
