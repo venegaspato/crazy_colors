@@ -15,11 +15,28 @@
 
         <div class="object score-box" data-value="1">
             <h3 class="object" data-value="-2">puntuaciones</h3>
+
+                <?php  
+                include "../php/connection.php";
+
+                $db = new Database();
+                 $connection = $db->ConnectDB();
+                 $sql = "SELECT * FROM PUNTAJES ORDER BY P_PUNTAJE DESC;";
+                 $result = mysqli_query($connection, $sql);
+
+                 while($row = mysqli_fetch_assoc($result))  {
+                
+                ?>
                 <div>
-                    <input type="text" class="score-input name" value="Jugador1" readonly>
-                    <input type="text" class="score-input number" value="00000" readonly>
+                    <input type="text" class="score-input name" value="<?php echo $row["P_JUGADOR"] ?>" readonly>
+                    <input type="text" class="score-input number" value="<?php echo $row["P_PUNTAJE"] ?>" readonly>
                 </div>
                
+                <?php 
+                 }
+                 mysqli_close($connection);
+                ?>
+                <!--
                 <div>
                     <input type="text" class="score-input name" value="Jugador2" readonly>
                     <input type="text" class="score-input number" value="00000" readonly>
@@ -37,7 +54,7 @@
                 <div>
                     <input type="text" class="score-input name" value="Jugador5" readonly>
                     <input type="text" class="score-input number" value="00000" readonly>
-                </div>
+                </div> -->
 
                 <div class="btn-contenedor">
                     <input  class="btn-design2 btn-design_audio uno"type="image" src="../img/back_btn.png" onclick="location.href='./principal.html'">

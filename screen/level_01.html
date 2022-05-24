@@ -6,7 +6,7 @@
         <title>CRAZY COLORS | LEVEL 01</title>
         <meta name='viewport' content='width=device-width, initial-scale=1'>
         <link rel='stylesheet' type='text/css' media='screen' href='../game.css'>
-
+        <link rel='stylesheet' type='text/css' media='screen' href='../style.css'>
         <script type="text/javascript" src="../js/Functions/mifacebook.js"></script>
         <script type="text/javascript">
             function shareFB() {
@@ -113,7 +113,14 @@
                          
                                 <div  class=" col-6 col-md-4" data-value="0">
                                     <div class=" btn-design">
-                                     
+                                        <form action="../php/addUser.php" method="post">
+                                            <div>
+                                                <input name="username" type="text" class="score-input name" placeholder="Ingresa tu nombre" style="color: white;" >
+                                                <input name="score" id="input_score" type="text" class="score-input number" value="" readonly>
+                                                <input  class="btn-design btn-design_audio cuatro" type="submit" src="../img/puntuaciones_btn.png">
+    
+                                            </div>
+                                            </form>
                                         <input  class="btn-design btn-design_audio dos"type="image" src="../img/reiniciar_btn.png" onclick="location.href='./level_01.html'">
                                         <input  class="btn-design btn-design_audio tres"type="image" src="../img/home_btn.png" onclick="location.href='./principal.html'">
                                         <input  class="btn-design btn-design_audio tres"type="image" src="../img/compartir_btn.png" onclick="shareFB();">

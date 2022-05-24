@@ -14,7 +14,7 @@ class Database{
     public function __construct(){
         $this->server = "localhost";
         $this->user = "root";
-        $this->password = "user1234";
+        $this->password = "";
         $this->database = "CRAZYCOLORS_DB";
         $this->port = "3306";
     }

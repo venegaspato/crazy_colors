@@ -10,7 +10,7 @@ $score = $_POST['score'];
 //$_SESSION['username'] = $username;
 
 // Procedure del Login
-$sql = "INSERT INTO PUNTAJES(P_JUGADOR, P_PUNTAJE) VALUES('$username', $score)";
+$sql = "INSERT INTO PUNTAJES(P_JUGADOR, P_PUNTAJE) VALUES('$username', '$score')";
 
 
 // Ejecuta mi query o muere D: 
@@ -18,7 +18,7 @@ $result = mysqli_query($connection, $sql);
 
 if($result){
     echo'<script type="text/javascript">
-    alert("Se ha guardado tu nombre.");
+    alert("Se ha guardado tu puntuación.");
     </script>';
 }else{
     echo'<script type="text/javascript">

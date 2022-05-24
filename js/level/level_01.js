@@ -21,6 +21,8 @@ document.body.appendChild(renderer.domElement);
 let loadedAssets = 0;
 const totalAssets = 5;
 
+var puntaje = 0;
+
 const keys = {};
 
 const patito = {
@@ -211,6 +213,7 @@ function collisions(){
         if(playerPato.position.y == -20){
             clock.stop();
             $("#game_over").fadeIn();
+            $("#input_score").val(puntaje);
         }
     }
 
@@ -222,6 +225,7 @@ function collisions(){
         if(playerRana.position.y == -20){
             clock.stop();
             $("#game_over").fadeIn();
+            $("#input_score").val(puntaje);
         }
     }
 
@@ -624,21 +628,25 @@ function onUpdatePlayer(dt){
         patito.handler.position.z -= patitoSpeed * dt;
         patito.handler.rotation.y = THREE.Math.degToRad(180);
         state = 'run';
+        puntaje += 1;
     }
     if(keys['s']){
         patito.handler.position.z += patitoSpeed * dt;
         patito.handler.rotation.y = 0;
         state = 'run';
+        puntaje += 1;
     }
     if(keys['a']){
         patito.handler.position.x -= patitoSpeed * dt;
         patito.handler.rotation.y = THREE.Math.degToRad(-90);
         state = 'run';
+        puntaje += 1;
     }
     if(keys['d']){
         patito.handler.position.x += patitoSpeed * dt;
         patito.handler.rotation.y = THREE.Math.degToRad(90);
         state = 'run';
+        puntaje += 1;
     }
     
     if(keys['shift']){

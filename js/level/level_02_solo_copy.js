@@ -24,6 +24,9 @@ var objetosConColision = [];
 
 var patitoSpeed = 15;
 
+// VARIABLE PARA CONTAR LOS PUNTOS
+var puntaje = 20;
+
 const patito = {
     victory: false,
     death: false,
@@ -89,6 +92,7 @@ var posicionInicialZ3 ;
 var posicionInicialZ4 ;
 var posicionInicialZ5 ;
 var posicionInicialZ6 ;
+
 
 // function onStartFloor(){
 //     const geometry = new THREE.PlaneGeometry(20,20);
@@ -159,6 +163,7 @@ function onLoadAudio(){
             if(playerPato.position.y == -20){
                 clock.stop();
                 $("#game_over").fadeIn();
+                $("#input_score").val(puntaje);
             }
         }
 
@@ -572,25 +577,31 @@ function onUpdatePlayer(dt){
         patito.handler.position.z -= patitoSpeed * dt;
         patito.handler.rotation.y = THREE.Math.degToRad(180);
         state = 'run';
+
+        puntaje += 1;
     }
     if(keys['s']){
         patito.handler.position.z += patitoSpeed * dt;
         patito.handler.rotation.y = 0;
         state = 'run';
+        puntaje += 1;
     }
     if(keys['a']){
         patito.handler.position.x -= patitoSpeed * dt;
         patito.handler.rotation.y = THREE.Math.degToRad(-90);
         state = 'run';
+        puntaje += 1;
     }
     if(keys['d']){
         patito.handler.position.x += patitoSpeed * dt;
         patito.handler.rotation.y = THREE.Math.degToRad(90);
         state = 'run';
+        puntaje += 1;
     }
     
     if(keys['shift']){
         state = 'jump';
+        puntaje += 1;
     }
 
     if(lastState != state){

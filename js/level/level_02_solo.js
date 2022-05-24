@@ -18,6 +18,8 @@ const totalAssets = 9;
 
 const keys = {};
 
+var puntaje = 0;
+
 var rayCaster = new THREE.Raycaster();
 
 var objetosConColision = [];
@@ -226,6 +228,7 @@ function onLoadAudio(){
             if(playerPato.position.y == -20){
                 clock.stop();
                 $("#game_over").fadeIn();
+                $("#input_score").val(puntaje);
             }
         }
 
