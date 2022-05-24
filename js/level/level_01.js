@@ -4,8 +4,6 @@ import {MTLLoader} from 'https://cdn.jsdelivr.net/npm/three@0.117.1/examples/jsm
 import {OBJLoader} from 'https://cdn.jsdelivr.net/npm/three@0.117.1/examples/jsm/loaders/OBJLoader.js';
 import {FBXLoader} from 'https://cdn.jsdelivr.net/npm/three@0.117.1/examples/jsm/loaders/FBXLoader.js';
 
-
-
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1,1000);
 const clock = new THREE.Clock();
@@ -15,47 +13,13 @@ renderer.setClearColor(new THREE.Color(0.4,0.7,0.9));
 renderer.setSize(window.innerWidth,innerHeight);
 document.body.appendChild(renderer.domElement);
 
-var particleSystem;
-var particleCount = 50;
-var particles;
-var reproducirParticulas = false;
+// var particleSystem;
+// var particleCount = 50;
+// var particles;
+// var reproducirParticulas = false;
 
 let loadedAssets = 0;
-const totalAssets = 13;
-
-var cont=0;
-
-//COLLISIONS
-var colisionPlayer1;
-var colisionPlayer2;
-var colisionPlataf0;
-var colisionPlataf1;
-var colisionPlataf2;
-var colisionPlataf3;
-var colisionPlataf4;
-var colisionPlataf5;
-var colisionPlataf6;
-
-
-//POSICIONES INICIALES EN X
-var posicionInicialX0 ;
-var posicionInicialX1 ;
-var posicionInicialX2 ;
-var posicionInicialX3 ;
-var posicionInicialX4 ;
-var posicionInicialX5 ;
-var posicionInicialX6 ;
-
-//POSICIONES INICIALES EN Z
-var posicionInicialZ0 ;
-var posicionInicialZ1 ;
-var posicionInicialZ2 ;
-var posicionInicialZ3 ;
-var posicionInicialZ4 ;
-var posicionInicialZ5 ;
-var posicionInicialZ6 ;
-
-// cronometro
+const totalAssets = 5;
 
 const keys = {};
 
@@ -84,6 +48,45 @@ const ranita = {
 		push:null
     }
 }
+
+var cont=0;
+var patitoSpeed = 15;
+var ranitaSpeed = 15;
+
+//COLLISIONS
+var colisionPlayer1;
+var colisionPlayer2;
+var colisionPlataf0;
+var colisionPlataf1;
+var colisionPlataf2;
+var colisionPlataf3;
+var colisionPlataf4;
+var colisionPlataf5;
+var colisionPlataf6;
+var colisionRayoVerde;
+var colisionRayoRojo;
+var colisionMoneda;
+
+
+//POSICIONES INICIALES EN X
+var posicionInicialX0 ;
+var posicionInicialX1 ;
+var posicionInicialX2 ;
+var posicionInicialX3 ;
+var posicionInicialX4 ;
+var posicionInicialX5 ;
+var posicionInicialX6 ;
+
+//POSICIONES INICIALES EN Z
+var posicionInicialZ0 ;
+var posicionInicialZ1 ;
+var posicionInicialZ2 ;
+var posicionInicialZ3 ;
+var posicionInicialZ4 ;
+var posicionInicialZ5 ;
+var posicionInicialZ6 ;
+
+// cronometro
 
 const enemy = {
     mixer:null, //permite controlar las animaciones
@@ -160,6 +163,10 @@ function collisions(){
     var Plataforma06 = scene.getObjectByName("6");
     var playerRana =scene.getObjectByName("ranita");
     var playerPato =scene.getObjectByName("patito");
+    var rayoVerde = scene.getObjectByName("rayo_verde00");
+    var rayoRojo = scene.getObjectByName("rayo_rojo00");
+    var moneda = scene.getObjectByName("coin00");
+    
 
     //Bounding Box
     colisionPlataf0 = new THREE.Box3().setFromObject(Plataforma00);
@@ -169,6 +176,9 @@ function collisions(){
     colisionPlataf4 = new THREE.Box3().setFromObject(Plataforma04);
     colisionPlataf5 = new THREE.Box3().setFromObject(Plataforma05);
     colisionPlataf6 = new THREE.Box3().setFromObject(Plataforma06);
+    colisionRayoVerde = new THREE.Box3().setFromObject(rayoVerde);
+    colisionRayoRojo = new THREE.Box3().setFromObject(rayoRojo);
+    colisionMoneda = new THREE.Box3().setFromObject(moneda);
     colisionPlayer1=new THREE.Box3().setFromObject(playerRana);
     colisionPlayer2=new THREE.Box3().setFromObject(playerPato);
 
@@ -179,6 +189,9 @@ function collisions(){
     var collisionP2YPL4 = colisionPlayer2.intersectsBox(colisionPlataf4);
     var collisionP2YPL5 = colisionPlayer2.intersectsBox(colisionPlataf5);
     var collisionP2YPL6 = colisionPlayer2.intersectsBox(colisionPlataf6);
+    var collisionVERDE2 = colisionPlayer2.intersectsBox(colisionRayoVerde);
+    var collisionROJO2 = colisionPlayer2.intersectsBox(colisionRayoRojo);
+    var collisionMONEDA2 = colisionPlayer2.intersectsBox(colisionMoneda);
 
     var collisionP1YPL0 = colisionPlayer1.intersectsBox(colisionPlataf0);
     var collisionP1YPL1 = colisionPlayer1.intersectsBox(colisionPlataf1);
@@ -187,10 +200,12 @@ function collisions(){
     var collisionP1YPL4 = colisionPlayer1.intersectsBox(colisionPlataf4);
     var collisionP1YPL5 = colisionPlayer1.intersectsBox(colisionPlataf5);
     var collisionP1YPL6 = colisionPlayer1.intersectsBox(colisionPlataf6);
+    var collisionVERDE1 = colisionPlayer1.intersectsBox(colisionRayoVerde);
+    var collisionROJO1 = colisionPlayer1.intersectsBox(colisionRayoRojo);
+    var collisionMONEDA1 = colisionPlayer1.intersectsBox(colisionMoneda);
 
     if(collisionP2YPL0 || collisionP2YPL1 || collisionP2YPL2 || collisionP2YPL3 || collisionP2YPL4 || collisionP2YPL5 || collisionP2YPL6){
         console.log("intersecta");
-        
     }else{
         playerPato.position.y -=1;
         if(playerPato.position.y == -20){
@@ -208,6 +223,64 @@ function collisions(){
             clock.stop();
             $("#game_over").fadeIn();
         }
+    }
+
+    if(collisionVERDE1){
+        console.log("intersecta");
+        var item= scene.getObjectByName("rayo_verde00");
+        removePlataforma(item);
+        ranitaSpeed = ranitaSpeed * 1.5;
+
+    }
+
+    if(collisionROJO1){
+        console.log("intersecta");
+        var item= scene.getObjectByName("rayo_rojo00");
+        removePlataforma(item);
+        ranitaSpeed = ranitaSpeed  -7;
+    }
+
+    if(collisionMONEDA1){
+        console.log("intersecta");
+        var item= scene.getObjectByName("coin00");
+        removePlataforma(item);
+        ranitaSpeed = ranitaSpeed * -1;
+    }
+
+    if(collisionVERDE2){
+        console.log("intersecta");
+        var item= scene.getObjectByName("rayo_verde00");
+        removePlataforma(item);
+        patitoSpeed = patitoSpeed * 1.5;
+
+        // setTimeout(function(){
+        //     random(patitoSpeed)
+        // },2000);
+
+    }
+
+    if(collisionROJO2){
+        console.log("intersecta");
+        var item= scene.getObjectByName("rayo_rojo00");
+        removePlataforma(item);
+        patitoSpeed = patitoSpeed  -7;
+
+        // setTimeout(function(){
+        //     random(patitoSpeed)
+        // },2000);
+
+    }
+
+    if(collisionMONEDA2){
+        console.log("intersecta");
+        var item= scene.getObjectByName("coin00");
+        removePlataforma(item);
+        patitoSpeed = patitoSpeed * -1;
+
+        // setTimeout(function(){
+        //     random(patitoSpeed)
+        // },2000);
+
     }
 }
 
@@ -227,23 +300,13 @@ function onStartModels(){
         scene.add(miObjFinal);
         //isWorldReady[0] = true;
     });
-    // loadOBJWithMTL("../models/scenario/","scenario_city.obj","scenario_city.mtl", (miObjFinal)=> {
-
-    //     miObjFinal.position.x = 0;
-    //     miObjFinal.position.y = 1.5;
-    //     miObjFinal.position.z = -8;
-    //     miObjFinal.scale.set(1.5,1.5,1.5);
-
-
-    //     scene.add(miObjFinal);
-    //     //isWorldReady[0] = true;
-    // });
+   
     loadOBJWithMTL("../models/scenario/","coin.obj","coin.mtl", (miObjFinal)=> {
 
         miObjFinal.position.x = 0;
         miObjFinal.position.y = 1.5;
-        miObjFinal.position.z = -8;
-        miObjFinal.scale.set(1.5,1.5,1.5);
+        miObjFinal.position.z = -16;
+        //miObjFinal.scale.set(1.5,1.5,1.5);
         miObjFinal.name = "coin00";
 
 
@@ -254,8 +317,10 @@ function onStartModels(){
     //PLATAFORMA AMARILLA
     loadOBJWithMTL("../models/scenario/","plataforma.obj","plataforma_amarilla.mtl", (miObjFinal)=> {
         
+        miObjFinal.position.x = 0;	
+        miObjFinal.position.z = -80;
         posicionInicialX0=miObjFinal.position.x = 0;	
-        posicionInicialZ0=miObjFinal.position.z = -80;	
+        posicionInicialZ0=miObjFinal.position.z = -80;		
         miObjFinal.scale.x=10;
         miObjFinal.scale.y=10;
         miObjFinal.scale.z=10;
@@ -267,8 +332,11 @@ function onStartModels(){
     //PLATAFORMA AZUL
     loadOBJWithMTL("../models/scenario/","plataforma.obj","plataforma_azul.mtl", (miObjFinal)=> {
         
+        miObjFinal.position.x = 9;
+        miObjFinal.position.z = -64.5;	
+        
         posicionInicialX1=miObjFinal.position.x = 9;
-        posicionInicialZ1=miObjFinal.position.z = -64.5;	
+        posicionInicialZ1=miObjFinal.position.z = -64.5;
         miObjFinal.scale.x=10;
         miObjFinal.scale.y=10;
         miObjFinal.scale.z=10;
@@ -280,6 +348,8 @@ function onStartModels(){
     //PLATAFORMA MORADA
     loadOBJWithMTL("../models/scenario/","plataforma.obj","plataforma_morada.mtl", (miObjFinal)=> {
         
+        miObjFinal.position.x = -9;	
+        miObjFinal.position.z = -64.5;	
         posicionInicialX2=miObjFinal.position.x = -9;	
         posicionInicialZ2=miObjFinal.position.z = -64.5;	
         miObjFinal.scale.x=10;
@@ -293,8 +363,11 @@ function onStartModels(){
     //PLATAFORMA NARANJA
     loadOBJWithMTL("../models/scenario/","plataforma.obj","plataforma_naranja.mtl", (miObjFinal)=> {
         
+        miObjFinal.position.x = 18;	
+        miObjFinal.position.z = -80;	
+        
         posicionInicialX3=miObjFinal.position.x = 18;	
-        posicionInicialZ3=miObjFinal.position.z = -80;	
+        posicionInicialZ3=miObjFinal.position.z = -80;
         miObjFinal.scale.x=10;
         miObjFinal.scale.y=10;
         miObjFinal.scale.z=10;
@@ -306,6 +379,8 @@ function onStartModels(){
     //PLATAFORMA ROJA
     loadOBJWithMTL("../models/scenario/","plataforma.obj","plataforma_roja.mtl", (miObjFinal)=> {
         
+        miObjFinal.position.x = -18;	
+        miObjFinal.position.z = -80;
         posicionInicialX4=miObjFinal.position.x = -18;	
         posicionInicialZ4=miObjFinal.position.z = -80;	
         miObjFinal.scale.x=10;
@@ -319,8 +394,10 @@ function onStartModels(){
     //PLATAFORMA ROSA
     loadOBJWithMTL("../models/scenario/","plataforma.obj","plataforma_rosa.mtl", (miObjFinal)=> {
         
+        miObjFinal.position.x = 9;	
+        miObjFinal.position.z = -95.5;	
         posicionInicialX5=miObjFinal.position.x = 9;	
-        posicionInicialZ5=miObjFinal.position.z = -95.5;	
+        posicionInicialZ5=miObjFinal.position.z = -95.5;
         miObjFinal.scale.x=10;
         miObjFinal.scale.y=10;
         miObjFinal.scale.z=10;
@@ -332,8 +409,10 @@ function onStartModels(){
     //PLATAFORMA VERDE
     loadOBJWithMTL("../models/scenario/","plataforma.obj","plataforma_verde.mtl", (miObjFinal)=> {
         
+        miObjFinal.position.x = -9;	
+        miObjFinal.position.z = -95.5;	
         posicionInicialX6=miObjFinal.position.x = -9;	
-        posicionInicialZ6=miObjFinal.position.z = -95.5;	
+        posicionInicialZ6=miObjFinal.position.z = -95.5;
         miObjFinal.scale.x=10;
         miObjFinal.scale.y=10;
         miObjFinal.scale.z=10;
@@ -345,12 +424,12 @@ function onStartModels(){
         //RAYO ROJO
     loadOBJWithMTL("../models/scenario/","rayo.obj","rayo_rojo.mtl", (miObjFinal)=> {
         
-        miObjFinal.position.x = -9;	
+        miObjFinal.position.x = -13;	
         miObjFinal.position.y = 1.5;	
         miObjFinal.position.z = -14;	
-        miObjFinal.scale.set(1.5,1.5,1.5);
-        //miObjFinal.name = "rayo_rojo00";
-        
+        //miObjFinal.scale.set(1.5,1.5,1.5);
+        miObjFinal.name = "rayo_rojo00";
+    
         scene.add(miObjFinal);
         //isWorldReady[1] = true;
     });
@@ -358,12 +437,12 @@ function onStartModels(){
     //RAYO VERDE
     loadOBJWithMTL("../models/scenario/","rayo.obj","rayo_verde.mtl", (miObjFinal)=> {
         
-        miObjFinal.position.x = 9;	
+        miObjFinal.position.x = 13;	
         miObjFinal.position.y = 1.5;	
         miObjFinal.position.z = -14;	
-        miObjFinal.scale.set(1.5,1.5,1.5);
-        //miObjFinal.name = "rayo_verde00";
-        
+        //miObjFinal.scale.set(1.5,1.5,1.5);
+        miObjFinal.name = "rayo_verde00";
+    
         scene.add(miObjFinal);
     });
 
@@ -540,7 +619,7 @@ function onUpdatePlayer(dt){
     let state = 'idle';
     patito.mixer.update(dt);
 
-    const patitoSpeed = 15;
+    //const patitoSpeed = 15;
     if(keys['w']){
         patito.handler.position.z -= patitoSpeed * dt;
         patito.handler.rotation.y = THREE.Math.degToRad(180);
@@ -580,13 +659,13 @@ function onUpdatePlayer(dt){
     }
     
 
-    /*var bueno = scene.getObjectByName("rayo_rojo00");
+    var bueno = scene.getObjectByName("rayo_rojo00");
 		var malo = scene.getObjectByName("rayo_verde00");
 		var coin = scene.getObjectByName("coin00");
 
 		bueno.rotation.y += THREE.Math.degToRad(0.8);
 		malo.rotation.y += THREE.Math.degToRad(0.7);
-		coin.rotation.y += THREE.Math.degToRad(1);*/
+		coin.rotation.y += THREE.Math.degToRad(1);
 
         
       
@@ -599,7 +678,7 @@ function onUpdatePlayer2(dt){
     let state2 = 'idle';
     ranita.mixer.update(dt);
 
-    const ranitaSpeed = 15;
+    //const ranitaSpeed = 15;
     if(keys['i']){
         ranita.handler.position.z -= ranitaSpeed * dt;
         ranita.handler.rotation.y = THREE.Math.degToRad(180);
@@ -639,44 +718,44 @@ function onUpdatePlayer2(dt){
         lastState2 = state2; //el estado actual pase a ser el anterior 
     }
 
-    if (reproducirParticulas == false) {
-        var rana =  scene.getObjectByName("ranita");
-        var pato = scene.getObjectByName("patito");
+    // if (reproducirParticulas == false) {
+    //     var rana =  scene.getObjectByName("ranita");
+    //     var pato = scene.getObjectByName("patito");
         
 
-        //var bueno = scene.getObjectByName("rayo_rojo00");
-		//var malo = scene.getObjectByName("rayo_verde00");
-		var coin = scene.getObjectByName("coin00");
+    //     //var bueno = scene.getObjectByName("rayo_rojo00");
+	// 	//var malo = scene.getObjectByName("rayo_verde00");
+	// 	var coin = scene.getObjectByName("coin00");
        
 
-        //Bounding Box
-        var firstBB = new THREE.Box3().setFromObject(rana);
+    //     //Bounding Box
+    //     var firstBB = new THREE.Box3().setFromObject(rana);
 
-        var secondBB = new THREE.Box3().setFromObject(coin);
+    //     var secondBB = new THREE.Box3().setFromObject(coin);
 
-        var collision = firstBB.intersectsBox(secondBB);
+    //     var collision = firstBB.intersectsBox(secondBB);
        
-        if (collision) {
-            console.log("colisionan");
+    //     if (collision) {
+    //         console.log("colisionan");
             
-            reproducirParticulas = true;
+    //         reproducirParticulas = true;
             
-            spawnParticulas(secondBB.position);
-            scene.remove(secondBB);
-        }
+    //         spawnParticulas(secondBB.position);
+    //         scene.remove(secondBB);
+    //     }
         
     
-    }
-    if (reproducirParticulas) {
-        contadorAnim += dt;
-       // particleSystem.rotation.y +=0.01;
-        if(contadorAnim>=duracionParticula){
-            contadorAnim=0;
-            reproducirParticulas=false;
-            scene.remove(particleSystem);
-        }
+    // }
+    // if (reproducirParticulas) {
+    //     contadorAnim += dt;
+    //    // particleSystem.rotation.y +=0.01;
+    //     if(contadorAnim>=duracionParticula){
+    //         contadorAnim=0;
+    //         reproducirParticulas=false;
+    //         scene.remove(particleSystem);
+    //     }
 				
-    }
+    // }
    
     
 }
@@ -854,55 +933,55 @@ function addPlataforma(object,i){
     }
 }
 
-function spawnParticulas(target) {
+// function spawnParticulas(target) {
 
-    // create the particle variables
+//     // create the particle variables
     
-    particles = new THREE.Geometry();
-    //material especial para las particulas
-    var pMaterial = new THREE.PointsMaterial({
-        color: 0xFFFFFF,
-        size: 1,
-        map: THREE.ImageUtils.loadTexture(
-           "../particulas/particula.png"
-         ),
-         blending: THREE.AdditiveBlending,
-         transparent: true
-    });
+//     particles = new THREE.Geometry();
+//     //material especial para las particulas
+//     var pMaterial = new THREE.PointsMaterial({
+//         color: 0xFFFFFF,
+//         size: 1,
+//         map: THREE.ImageUtils.loadTexture(
+//            "../particulas/particula.png"
+//          ),
+//          blending: THREE.AdditiveBlending,
+//          transparent: true
+//     });
 
 
 
-    // now create the individual particles
-    for (var p = 0; p < particleCount; p++) {
+//     // now create the individual particles
+//     for (var p = 0; p < particleCount; p++) {
 
-      // create a particle with random
-      // position values, -250 -> 250
-      var pX = Math.random() * 500 - 250,
-      pY = Math.random() * 500 - 250,
-      pZ = Math.random() * 500 - 250
-          particle = new THREE.Vertex(
-            new THREE.Vector3(pX, pY, pZ)
-          );
+//       // create a particle with random
+//       // position values, -250 -> 250
+//       var pX = Math.random() * 500 - 250,
+//       pY = Math.random() * 500 - 250,
+//       pZ = Math.random() * 500 - 250
+//           particle = new THREE.Vertex(
+//             new THREE.Vector3(pX, pY, pZ)
+//           );
     
-         // create a velocity vector
-      particle.velocity = new THREE.Vector3(0, -Math.random(), 0);            
+//          // create a velocity vector
+//       particle.velocity = new THREE.Vector3(0, -Math.random(), 0);            
 
-      particles.vertices.push(particle);// se agrega los nuevos vertices a la geometria vacia creada
-    }
+//       particles.vertices.push(particle);// se agrega los nuevos vertices a la geometria vacia creada
+//     }
 
-    // create the particle system
-    particleSystem = new THREE.Points(particles,pMaterial);
+//     // create the particle system
+//     particleSystem = new THREE.Points(particles,pMaterial);
 
-    particleSystem.sortParticles = true;
+//     particleSystem.sortParticles = true;
 
-    // add it to the scene
-    scene.add(particleSystem);
+//     // add it to the scene
+//     scene.add(particleSystem);
 
-}
+// }
 
-function getRandomArbitrary(min, max) {
-  return Math.random() * (max - min) + min;
-}
+// function getRandomArbitrary(min, max) {
+//   return Math.random() * (max - min) + min;
+// }
  
 function onUpdateEnemy(dt){
     enemy.mixer.update(dt);
@@ -914,46 +993,43 @@ function onUpdate(dt){
     onUpdateEnemy(dt);
     
 }
-function onUpdateTime(){
-    var interval = 10000; // ms
-var expected = Date.now() + interval;
-setTimeout(step, interval);
-function step() {
-    var dtt = Date.now() - expected; // the drift (positive for overshooting)
-    if (dtt > interval) {
-        // something really bad happened. Maybe the browser (tab) was inactive?tion
-        // possibly special handling to avoid futile "catch up" run
-    }
-    random(0,6); // do what is to be done
+// function onUpdateTime(){
+//     var interval = 10000; // ms
+// var expected = Date.now() + interval;
+// setTimeout(step, interval);
+// function step() {
+//     var dtt = Date.now() - expected; // the drift (positive for overshooting)
+//     if (dtt > interval) {
+//         // something really bad happened. Maybe the browser (tab) was inactive?tion
+//         // possibly special handling to avoid futile "catch up" run
+//     }
+//     random(0,6); // do what is to be done
 
-    expected += interval;
-    setTimeout(step, Math.max(0, interval - dtt)); // take into account drift
-}
+//     expected += interval;
+//     setTimeout(step, Math.max(0, interval - dtt)); // take into account drift
+// }
 
-}
+// }
 
-function contador(){
-    var segundos = Math.floor(cont/100);
-	var contador = document.getElementById("Tiempo");
-	contador.value = segundos;
-	cont++;
+// function contador(){
+//     var segundos = Math.floor(cont/100);
+// 	var contador = document.getElementById("Tiempo");
+// 	contador.value = segundos;
+// 	cont++;
     
-}
+// }
 
-var contadorAnim = 0;
-	var duracionParticula = 2;
+// var contadorAnim = 0;
+// 	var duracionParticula = 2;
 
 function render(){
     requestAnimationFrame(render);
-    contador();
-    collisions();
+    // contador();
+     collisions();
     const dt = clock.getDelta();
     if(loadedAssets >= totalAssets){
         onUpdate(dt);
         //checkForTarget();
-
-    
-
         renderer.render(scene,camera);
      
     }

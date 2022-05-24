@@ -7,6 +7,7 @@
         <meta name='viewport' content='width=device-width, initial-scale=1'>
     
         <link rel='stylesheet' type='text/css' media='screen' href='../game.css'>
+        <link rel='stylesheet' type='text/css' media='screen' href='../style.css'>
 
         <script type="text/javascript" src="../js/Functions/mifacebook.js"></script>
         <script type="text/javascript">
@@ -46,15 +47,16 @@
     </head>
 
     <body>
+        <script type="text/javascript" src="/js/Functions/particles.js"></script>
         <div class="contenido-general">
 
             <center>
             <div class="instrucciones">
-                <div class="instrucciones_p1">
-                    <img src="../img/Player1.png" class="instrucciones-image" alt="">
+                <div class="instrucciones_p1 ">
+                    <img src="../img/Player1.png" class="instrucciones-image solo"   alt="" >
                 </div>
 
-                <div class="time-section">
+                <div class="time-section instrucciones_p1">
                     <div class="time-content"> <h2 >Tiempo: </h2></div>
                     <div class="time-content"> <input type="text" id="Tiempo" ></div>
                 
@@ -67,14 +69,15 @@
                             <h2 id="verde" class="color" style="color:'green';">VERDE </h2>
                             <h2 id="rosa" class="color" style="color:'pink';">ROSA </h2>
                             <h2 id="naranja" class="color" style="color:'orange';">NARANJA </h2>
+                            
                          </div>
                     </div>
+
+                    
                 
                 </div>
 
-                <div class="instrucciones_p2">
-                    <img src="../img/Player2.png" class="instrucciones-image" alt="">
-                </div>
+                 
             </div>
 
             <input id="btn_pause" class="btn_pausa"type="image" src="../img/pausa_btn.png">
@@ -92,7 +95,7 @@
                                 <div class=" col-6 col-md-4" data-value="0">
                                     <div class=" btn-design">
                                         <input id="btn_continuar" class="btn-design btn-design_audio uno  "type="image" src="../img/continuar_btn.png" >
-                                        <input  class="btn-design btn-design_audio dos"type="image" src="../img/reiniciar_btn.png" onclick="location.href='./level_01.html'">
+                                        <input  class="btn-design btn-design_audio dos"type="image" src="../img/reiniciar_btn.png" onclick="location.href='./level_02_solo.html'">
                                         <input  class="btn-design btn-design_audio dos"type="image" src="../img/home_btn.png" onclick="location.href='./principal.html'">
                                       
                                 
@@ -113,8 +116,17 @@
                                 
                          
                                 <div  class=" col-6 col-md-4" data-value="0">
+                                    
                                     <div class=" btn-design">
-                                     
+                                        <form action="/php/addUser.php" method="post">
+                                        <div>
+                                            <input name="username" type="text" class="score-input name" placeholder="Ingresa tu nombre" style="color: white;" >
+                                            <input id="#input_score" type="text" class="score-input number" value="00000" readonly>
+                                            <input  class="btn-design btn-design_audio cuatro"type="image" src="../img/puntuaciones_btn.png" >
+
+                                        </div>
+                                        </form>
+                                        
                                         <input  class="btn-design btn-design_audio dos"type="image" src="../img/reiniciar_btn.png" onclick="location.href='./level_02_solo.html'">
                                         <input  class="btn-design btn-design_audio tres"type="image" src="../img/home_btn.png" onclick="location.href='./principal.html'">
                                         <input  class="btn-design btn-design_audio tres"type="image" src="../img/compartir_btn.png" onclick="shareFB();">
@@ -129,7 +141,7 @@
 
         <div class="videogame-section">
             <div class="game-section">  
-                <script type="module" src="../js/level/level_02_solo.js"></script>
+                <script type="module" src="../js/level/level_02_solo_copy.js"></script>
             </div>
         </div>
     </center>

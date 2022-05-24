@@ -22,6 +22,9 @@ var rayCaster = new THREE.Raycaster();
 
 var objetosConColision = [];
 
+var patitoSpeed = 15;
+var ranitaSpeed = 15;
+
 const patito = {
     victory: false,
     death: false,
@@ -67,6 +70,20 @@ var colisionPlataf3;
 var colisionPlataf4;
 var colisionPlataf5;
 var colisionPlataf6;
+var colisionPlataf7;
+var colisionPlataf8;
+var colisionPlataf9;
+var colisionPlataf10;
+var colisionPlataf11;
+var colisionPlataf12;
+var colisionPlataf13;
+var colisionPlataf14;
+var colisionPlataf15;
+var colisionPlataf16;
+var colisionPlataf17;
+var colisionRayoVerde;
+var colisionRayoRojo;
+var colisionMoneda;
 
 
 //POSICIONES INICIALES EN X
@@ -77,6 +94,17 @@ var posicionInicialX3 ;
 var posicionInicialX4 ;
 var posicionInicialX5 ;
 var posicionInicialX6 ;
+var posicionInicialX7 ;
+var posicionInicialX8 ;
+var posicionInicialX9 ;
+var posicionInicialX10 ;
+var posicionInicialX11 ;
+var posicionInicialX12 ;
+var posicionInicialX13 ;
+var posicionInicialX14 ;
+var posicionInicialX15 ;
+var posicionInicialX16 ;
+var posicionInicialX17 ;
 
 //POSICIONES INICIALES EN Z
 var posicionInicialZ0 ;
@@ -86,6 +114,17 @@ var posicionInicialZ3 ;
 var posicionInicialZ4 ;
 var posicionInicialZ5 ;
 var posicionInicialZ6 ;
+var posicionInicialZ7 ;
+var posicionInicialZ8 ;
+var posicionInicialZ9 ;
+var posicionInicialZ10 ;
+var posicionInicialZ11 ;
+var posicionInicialZ12 ;
+var posicionInicialZ13 ;
+var posicionInicialZ14 ;
+var posicionInicialZ15 ;
+var posicionInicialZ16 ;
+var posicionInicialZ17 ;
 
 // function onStartFloor(){
 //     const geometry = new THREE.PlaneGeometry(20,20);
@@ -119,6 +158,20 @@ function collisions(){
     var Plataforma04 =  scene.getObjectByName("4");
     var Plataforma05 = scene.getObjectByName("5");
     var Plataforma06 = scene.getObjectByName("6");
+    var Plataforma07 = scene.getObjectByName("7");
+    var Plataforma08 = scene.getObjectByName("8");
+    var Plataforma09 = scene.getObjectByName("9");
+    var Plataforma10 = scene.getObjectByName("10");
+    var Plataforma11 = scene.getObjectByName("11");
+    var Plataforma12 = scene.getObjectByName("12");
+    var Plataforma13 = scene.getObjectByName("13");
+    var Plataforma14 = scene.getObjectByName("14");
+    var Plataforma15 = scene.getObjectByName("15");
+    var Plataforma16 = scene.getObjectByName("16");
+    var Plataforma17 = scene.getObjectByName("17");
+    var rayoVerde = scene.getObjectByName("rayo_verde00");
+    var rayoRojo = scene.getObjectByName("rayo_rojo00");
+    var moneda = scene.getObjectByName("coin00");
     var playerRana =scene.getObjectByName("ranita");
     var playerPato =scene.getObjectByName("patito");
 
@@ -130,6 +183,20 @@ function collisions(){
     colisionPlataf4 = new THREE.Box3().setFromObject(Plataforma04);
     colisionPlataf5 = new THREE.Box3().setFromObject(Plataforma05);
     colisionPlataf6 = new THREE.Box3().setFromObject(Plataforma06);
+    colisionPlataf7 = new THREE.Box3().setFromObject(Plataforma07);
+    colisionPlataf8 = new THREE.Box3().setFromObject(Plataforma08);
+    colisionPlataf9 = new THREE.Box3().setFromObject(Plataforma09);
+    colisionPlataf10 = new THREE.Box3().setFromObject(Plataforma10);
+    colisionPlataf11 = new THREE.Box3().setFromObject(Plataforma11);
+    colisionPlataf12 = new THREE.Box3().setFromObject(Plataforma12);
+    colisionPlataf13 = new THREE.Box3().setFromObject(Plataforma13);
+    colisionPlataf14 = new THREE.Box3().setFromObject(Plataforma14);
+    colisionPlataf15 = new THREE.Box3().setFromObject(Plataforma15);
+    colisionPlataf16 = new THREE.Box3().setFromObject(Plataforma16);
+    colisionPlataf17 = new THREE.Box3().setFromObject(Plataforma17);
+    colisionRayoVerde = new THREE.Box3().setFromObject(rayoVerde);
+    colisionRayoRojo = new THREE.Box3().setFromObject(rayoRojo);
+    colisionMoneda = new THREE.Box3().setFromObject(moneda);
     colisionPlayer1=new THREE.Box3().setFromObject(playerRana);
     colisionPlayer2=new THREE.Box3().setFromObject(playerPato);
 
@@ -140,6 +207,20 @@ function collisions(){
     var collisionP2YPL4 = colisionPlayer2.intersectsBox(colisionPlataf4);
     var collisionP2YPL5 = colisionPlayer2.intersectsBox(colisionPlataf5);
     var collisionP2YPL6 = colisionPlayer2.intersectsBox(colisionPlataf6);
+    var collisionP2YPL7 = colisionPlayer2.intersectsBox(colisionPlataf7);
+    var collisionP2YPL8 = colisionPlayer2.intersectsBox(colisionPlataf8);
+    var collisionP2YPL9 = colisionPlayer2.intersectsBox(colisionPlataf9);
+    var collisionP2YPL10 = colisionPlayer2.intersectsBox(colisionPlataf10);
+    var collisionP2YPL11 = colisionPlayer2.intersectsBox(colisionPlataf11);
+    var collisionP2YPL12 = colisionPlayer2.intersectsBox(colisionPlataf12);
+    var collisionP2YPL13 = colisionPlayer2.intersectsBox(colisionPlataf13);
+    var collisionP2YPL14 = colisionPlayer2.intersectsBox(colisionPlataf14);
+    var collisionP2YPL15 = colisionPlayer2.intersectsBox(colisionPlataf15);
+    var collisionP2YPL16 = colisionPlayer2.intersectsBox(colisionPlataf16);
+    var collisionP2YPL17 = colisionPlayer2.intersectsBox(colisionPlataf17);
+    var collisionVERDE2 = colisionPlayer2.intersectsBox(colisionRayoVerde);
+    var collisionROJO2 = colisionPlayer2.intersectsBox(colisionRayoRojo);
+    var collisionMONEDA2 = colisionPlayer2.intersectsBox(colisionMoneda);
 
     var collisionP1YPL0 = colisionPlayer1.intersectsBox(colisionPlataf0);
     var collisionP1YPL1 = colisionPlayer1.intersectsBox(colisionPlataf1);
@@ -148,10 +229,25 @@ function collisions(){
     var collisionP1YPL4 = colisionPlayer1.intersectsBox(colisionPlataf4);
     var collisionP1YPL5 = colisionPlayer1.intersectsBox(colisionPlataf5);
     var collisionP1YPL6 = colisionPlayer1.intersectsBox(colisionPlataf6);
+    var collisionP1YPL7 = colisionPlayer1.intersectsBox(colisionPlataf7);
+    var collisionP1YPL8 = colisionPlayer1.intersectsBox(colisionPlataf8);
+    var collisionP1YPL9 = colisionPlayer1.intersectsBox(colisionPlataf9);
+    var collisionP1YPL10 = colisionPlayer1.intersectsBox(colisionPlataf10);
+    var collisionP1YPL11 = colisionPlayer1.intersectsBox(colisionPlataf11);
+    var collisionP1YPL12 = colisionPlayer1.intersectsBox(colisionPlataf12);
+    var collisionP1YPL13 = colisionPlayer1.intersectsBox(colisionPlataf13);
+    var collisionP1YPL14 = colisionPlayer1.intersectsBox(colisionPlataf14);
+    var collisionP1YPL15 = colisionPlayer1.intersectsBox(colisionPlataf15);
+    var collisionP1YPL16 = colisionPlayer1.intersectsBox(colisionPlataf16);
+    var collisionP1YPL17 = colisionPlayer1.intersectsBox(colisionPlataf17);
+    var collisionVERDE1 = colisionPlayer1.intersectsBox(colisionRayoVerde);
+    var collisionROJO1 = colisionPlayer1.intersectsBox(colisionRayoRojo);
+    var collisionMONEDA1 = colisionPlayer1.intersectsBox(colisionMoneda);
 
-    if(collisionP2YPL0 || collisionP2YPL1 || collisionP2YPL2 || collisionP2YPL3 || collisionP2YPL4 || collisionP2YPL5 || collisionP2YPL6){
+    if(collisionP2YPL0 || collisionP2YPL1 || collisionP2YPL2 || collisionP2YPL3 || collisionP2YPL4 || collisionP2YPL5 || collisionP2YPL6 || 
+        collisionP2YPL7 || collisionP2YPL8 || collisionP2YPL9 || collisionP2YPL10 || collisionP2YPL11 || collisionP2YPL12 || 
+        collisionP2YPL13 || collisionP2YPL14 || collisionP2YPL15 || collisionP2YPL16 || collisionP2YPL17){
         console.log("intersecta");
-        
     }else{
         playerPato.position.y -=1;
         if(playerPato.position.y == -20){
@@ -160,7 +256,9 @@ function collisions(){
         }
     }
 
-    if(collisionP1YPL0 || collisionP1YPL1 || collisionP1YPL2 || collisionP1YPL3 || collisionP1YPL4 || collisionP1YPL5 || collisionP1YPL6){
+    if(collisionP1YPL0 || collisionP1YPL1 || collisionP1YPL2 || collisionP1YPL3 || collisionP1YPL4 || collisionP1YPL5 || collisionP1YPL6 ||
+        collisionP1YPL7 || collisionP1YPL8 || collisionP1YPL9 || collisionP1YPL10 || collisionP1YPL11 || collisionP1YPL12 || 
+        collisionP1YPL13 || collisionP1YPL14 || collisionP1YPL15 || collisionP1YPL16 || collisionP1YPL17){
         console.log("intersecta");
         
     }else{
@@ -169,6 +267,64 @@ function collisions(){
             clock.stop();
             $("#game_over").fadeIn();
         }
+    }
+
+    if(collisionVERDE1){
+        console.log("intersecta");
+        var item= scene.getObjectByName("rayo_verde00");
+        removePlataforma(item);
+        ranitaSpeed = ranitaSpeed * 1.5;
+
+    }
+
+    if(collisionROJO1){
+        console.log("intersecta");
+        var item= scene.getObjectByName("rayo_rojo00");
+        removePlataforma(item);
+        ranitaSpeed = ranitaSpeed  -7;
+    }
+
+    if(collisionMONEDA1){
+        console.log("intersecta");
+        var item= scene.getObjectByName("coin00");
+        removePlataforma(item);
+        ranitaSpeed = ranitaSpeed * -1;
+    }
+
+    if(collisionVERDE2){
+        console.log("intersecta");
+        var item= scene.getObjectByName("rayo_verde00");
+        removePlataforma(item);
+        patitoSpeed = patitoSpeed * 1.5;
+
+        // setTimeout(function(){
+        //     random(patitoSpeed)
+        // },2000);
+
+    }
+
+    if(collisionROJO2){
+        console.log("intersecta");
+        var item= scene.getObjectByName("rayo_rojo00");
+        removePlataforma(item);
+        patitoSpeed = patitoSpeed  -7;
+
+        // setTimeout(function(){
+        //     random(patitoSpeed)
+        // },2000);
+
+    }
+
+    if(collisionMONEDA2){
+        console.log("intersecta");
+        var item= scene.getObjectByName("coin00");
+        removePlataforma(item);
+        patitoSpeed = patitoSpeed * -1;
+
+        // setTimeout(function(){
+        //     random(patitoSpeed)
+        // },2000);
+
     }
 }
 
@@ -193,7 +349,7 @@ function onStartModels(){
 
         miObjFinal.position.x = 0;
         miObjFinal.position.y = 1.5;
-        miObjFinal.position.z = -8;
+        miObjFinal.position.z = 22;
         miObjFinal.scale.set(1.5,1.5,1.5);
         miObjFinal.name = "coin00";
 
@@ -209,46 +365,107 @@ function onStartModels(){
         miObjFinal.scale.x=10;
         miObjFinal.scale.y=10;
         miObjFinal.scale.z=10;
-        posicionInicialX0=miObjFinal.position.x = -32;	
-        posicionInicialZ0=miObjFinal.position.z = -70;	
         
+        posicionInicialX0=miObjFinal.position.x = -32;	
+        posicionInicialZ0=miObjFinal.position.z = -70;
+        miObjFinal.position.x = -32;	
+        miObjFinal.position.z = -70;
         miObjFinal.rotation.y = THREE.Math.degToRad(30)
         miObjFinal.name = "0";
 
-        var verde_2 = miObjFinal.clone();
-        verde_2.position.x = 12; 
-        verde_2.position.z = -30; 
+        // var verde_2 = miObjFinal.clone();
+        // posicionInicialX7=verde_2.position.x = 12;	
+        // posicionInicialZ7=verde_2.position.z = -30;
+        // verde_2.position.x = 12; 
+        // verde_2.position.z = -30; 
+        // verde_2.name = "7";
 
-        var verde_3 = miObjFinal.clone();
-        verde_3.position.z = -30; 
+        // var verde_3 = miObjFinal.clone();
+        // verde_3.position.z = -30; 
     
+         scene.add(miObjFinal);
+        // scene.add(verde_2);
+        // scene.add(verde_3);
+    });
+
+    //PLATAFORMA VERDE
+    loadOBJWithMTL("../models/scenario/","plataforma.obj","plataforma_verde.mtl", (miObjFinal)=> {
+        
+        	
+        miObjFinal.scale.x=10;
+        miObjFinal.scale.y=10;
+        miObjFinal.scale.z=10;
+        
+        posicionInicialX7=miObjFinal.position.x = 12;	
+        posicionInicialZ7=miObjFinal.position.z = -30;
+        miObjFinal.position.x = 12;	
+        miObjFinal.position.z = -30;
+        miObjFinal.rotation.y = THREE.Math.degToRad(30)
+        miObjFinal.name = "7";
+
         scene.add(miObjFinal);
-        scene.add(verde_2);
-        scene.add(verde_3);
+    });
+
+    //PLATAFORMA VERDE
+    loadOBJWithMTL("../models/scenario/","plataforma.obj","plataforma_verde.mtl", (miObjFinal)=> {
+        
+        	
+        miObjFinal.scale.x=10;
+        miObjFinal.scale.y=10;
+        miObjFinal.scale.z=10;
+        
+        posicionInicialX8=miObjFinal.position.x = -32;	
+        posicionInicialZ8=miObjFinal.position.z = -30;
+        miObjFinal.position.x = -32;	
+        miObjFinal.position.z = -30;
+        miObjFinal.rotation.y = THREE.Math.degToRad(30)
+        miObjFinal.name = "8";
+
+        scene.add(miObjFinal);
     });
 
     //PLATAFORMA MORADA
     loadOBJWithMTL("../models/scenario/","plataforma.obj","plataforma_morada.mtl", (miObjFinal)=> {
+        
         posicionInicialX1=miObjFinal.position.x = -21;
         posicionInicialZ1=miObjFinal.position.z = -50;
-    	
+        miObjFinal.position.x = -21;	
+        miObjFinal.position.z = -50 ;	
         miObjFinal.scale.x=10;
         miObjFinal.scale.y=10;
         miObjFinal.scale.z=10;
         miObjFinal.rotation.y = THREE.Math.degToRad(30)
 
-        var morada_2 = miObjFinal.clone();
-        morada_2.position.x = -76;
-        morada_2.position.z = -30;
+        // var morada_2 = miObjFinal.clone();
+        // morada_2.position.x = -76;
+        // morada_2.position.z = -30;
 
         miObjFinal.name = "1";	
     
         scene.add(miObjFinal);
-        scene.add(morada_2);
+        //scene.add(morada_2);
+    });
+
+    //PLATAFORMA MORADA
+    loadOBJWithMTL("../models/scenario/","plataforma.obj","plataforma_morada.mtl", (miObjFinal)=> {
+        
+        posicionInicialX9=miObjFinal.position.x = -76;
+        posicionInicialZ9=miObjFinal.position.z = -30;
+        miObjFinal.position.x = -76;	
+        miObjFinal.position.z = -30 ;	
+        miObjFinal.scale.x=10;
+        miObjFinal.scale.y=10;
+        miObjFinal.scale.z=10;
+        miObjFinal.rotation.y = THREE.Math.degToRad(30)
+
+        miObjFinal.name = "9";	
+    
+        scene.add(miObjFinal);
     });
 
     //PLATAFORMA ROJA
     loadOBJWithMTL("../models/scenario/","plataforma.obj","plataforma_roja.mtl", (miObjFinal)=> {
+         
         posicionInicialX2=miObjFinal.position.x = -43;	
         posicionInicialZ2=miObjFinal.position.z = -50;
         miObjFinal.position.x = -43;	
@@ -266,105 +483,249 @@ function onStartModels(){
 
     //PLATAFORMA NARANJA
     loadOBJWithMTL("../models/scenario/","plataforma.obj","plataforma_naranja.mtl", (miObjFinal)=> {
+        
         posicionInicialX3=miObjFinal.position.x = 1;	
         posicionInicialZ3=miObjFinal.position.z = -50;
-        	
+        miObjFinal.position.x = 1;	
+        miObjFinal.position.z = -50;	
         miObjFinal.scale.x=10;
         miObjFinal.scale.y=10;
         miObjFinal.scale.z=10;
         miObjFinal.rotation.y = THREE.Math.degToRad(30)
         miObjFinal.name = "3";
 
-        var naranja_2 = miObjFinal.clone();
-        naranja_2.position.x = -65;
+        // var naranja_2 = miObjFinal.clone();
+        // naranja_2.position.x = -65;
 
-        var naranja_3 = miObjFinal.clone();
-        naranja_3.position.x = -43;
-        naranja_3.position.z = -10;
+        // var naranja_3 = miObjFinal.clone();
+        // naranja_3.position.x = -43;
+        // naranja_3.position.z = -10;
 
         scene.add(miObjFinal);
-        scene.add(naranja_2);
-        scene.add(naranja_3);
+        //scene.add(naranja_2);
+        //scene.add(naranja_3);
+    });
+
+    //PLATAFORMA NARANJA
+    loadOBJWithMTL("../models/scenario/","plataforma.obj","plataforma_naranja.mtl", (miObjFinal)=> {
+        
+        posicionInicialX10=miObjFinal.position.x = -65;	
+        posicionInicialZ10=miObjFinal.position.z = -50;
+        miObjFinal.position.x = -65;	
+        miObjFinal.position.z = -50;	
+        miObjFinal.scale.x=10;
+        miObjFinal.scale.y=10;
+        miObjFinal.scale.z=10;
+        miObjFinal.rotation.y = THREE.Math.degToRad(30)
+        miObjFinal.name = "10";
+
+        scene.add(miObjFinal);
+    });
+
+     //PLATAFORMA NARANJA
+     loadOBJWithMTL("../models/scenario/","plataforma.obj","plataforma_naranja.mtl", (miObjFinal)=> {
+        
+        posicionInicialX11=miObjFinal.position.z = -43;
+        posicionInicialZ11=miObjFinal.position.z = -10;
+        miObjFinal.position.x = -43;	
+        miObjFinal.position.z = -10;	
+        miObjFinal.scale.x=10;
+        miObjFinal.scale.y=10;
+        miObjFinal.scale.z=10;
+        miObjFinal.rotation.y = THREE.Math.degToRad(30)
+        miObjFinal.name = "11";
+
+        scene.add(miObjFinal);
     });
 
     //PLATAFORMA ROSA
     loadOBJWithMTL("../models/scenario/","plataforma.obj","plataforma_rosa.mtl", (miObjFinal)=> {
+        
         posicionInicialX4=miObjFinal.position.x = -54;	
-        posicionInicialZ4=miObjFinal.position.z = -70;
-        	
+        posicionInicialZ4=miObjFinal.position.z = -70;	
+        miObjFinal.position.x = -54;	
+        miObjFinal.position.z = -70;	
         miObjFinal.scale.x=10;
         miObjFinal.scale.y=10;
         miObjFinal.scale.z=10;
         miObjFinal.rotation.y = THREE.Math.degToRad(30)
         miObjFinal.name = "4";
 
-        var rosa_2 = miObjFinal.clone();
-        rosa_2.position.x = -10; 
-        rosa_2.position.z = -70;
+        // var rosa_2 = miObjFinal.clone();
+        // rosa_2.position.x = -10; 
+        // rosa_2.position.z = -70;
 
-        var rosa_3 = miObjFinal.clone();
-        rosa_3.position.x = -21; 
-        rosa_3.position.z = -10;
+        // var rosa_3 = miObjFinal.clone();
+        // rosa_3.position.x = -21; 
+        // rosa_3.position.z = -10;
     
         scene.add(miObjFinal);
-        scene.add(rosa_2);
-        scene.add(rosa_3);
+        //scene.add(rosa_2);
+        //scene.add(rosa_3);
+    });
+
+     //PLATAFORMA ROSA
+     loadOBJWithMTL("../models/scenario/","plataforma.obj","plataforma_rosa.mtl", (miObjFinal)=> {
+        
+        posicionInicialX12=miObjFinal.position.x = -10;	
+        posicionInicialZ12=miObjFinal.position.z = -70;	
+        miObjFinal.position.x = -10;	
+        miObjFinal.position.z = -70;	
+        miObjFinal.scale.x=10;
+        miObjFinal.scale.y=10;
+        miObjFinal.scale.z=10;
+        miObjFinal.rotation.y = THREE.Math.degToRad(30)
+        miObjFinal.name = "12";
+    
+        scene.add(miObjFinal);
+    });
+
+     //PLATAFORMA ROSA
+     loadOBJWithMTL("../models/scenario/","plataforma.obj","plataforma_rosa.mtl", (miObjFinal)=> {
+        
+        posicionInicialX13=miObjFinal.position.x = -21;	
+        posicionInicialZ13=miObjFinal.position.z = -10;	
+        miObjFinal.position.x = -21;	
+        miObjFinal.position.z = -10;	
+        miObjFinal.scale.x=10;
+        miObjFinal.scale.y=10;
+        miObjFinal.scale.z=10;
+        miObjFinal.rotation.y = THREE.Math.degToRad(30)
+        miObjFinal.name = "13";
+    
+        scene.add(miObjFinal);
     });
 
     //PLATAFORMA AMARILLA
     loadOBJWithMTL("../models/scenario/","plataforma.obj","plataforma_amarilla.mtl", (miObjFinal)=> {
+        
         posicionInicialX5=miObjFinal.position.x = -21;	
         posicionInicialZ5=miObjFinal.position.z = -90;
-        	
+        miObjFinal.position.x = -21;	
+        miObjFinal.position.z = -90;	
         miObjFinal.scale.x=10;
         miObjFinal.scale.y=10;
         miObjFinal.scale.z=10;
         miObjFinal.rotation.y = THREE.Math.degToRad(30)
         miObjFinal.name = "5";
 
-        var amarilla_2 = miObjFinal.clone();
-        amarilla_2.position.x = -10; 
-        amarilla_2.position.z = -30; 
+        // var amarilla_2 = miObjFinal.clone();
+        // amarilla_2.position.x = -10; 
+        // amarilla_2.position.z = -30; 
 
-        var amarilla_3 = miObjFinal.clone();
-        amarilla_3.position.x = -65; 
-        amarilla_3.position.z = -10; 
+        // var amarilla_3 = miObjFinal.clone();
+        // amarilla_3.position.x = -65; 
+        // amarilla_3.position.z = -10; 
     
         scene.add(miObjFinal);
-        scene.add(amarilla_2);
-        scene.add(amarilla_3);
+        // scene.add(amarilla_2);
+        // scene.add(amarilla_3);
     });
 
+    //PLATAFORMA AMARILLA
+    loadOBJWithMTL("../models/scenario/","plataforma.obj","plataforma_amarilla.mtl", (miObjFinal)=> {
+        
+        posicionInicialX14=miObjFinal.position.x = -10;	
+        posicionInicialZ14=miObjFinal.position.z = -30;
+        miObjFinal.position.x = -10;	
+        miObjFinal.position.z = -30;	
+        miObjFinal.scale.x=10;
+        miObjFinal.scale.y=10;
+        miObjFinal.scale.z=10;
+        miObjFinal.rotation.y = THREE.Math.degToRad(30)
+        miObjFinal.name = "14";
+
+        // var amarilla_3 = miObjFinal.clone();
+        // amarilla_3.position.x = -65; 
+        // amarilla_3.position.z = -10; 
+    
+        scene.add(miObjFinal);
+    });
+
+    //PLATAFORMA AMARILLA
+    loadOBJWithMTL("../models/scenario/","plataforma.obj","plataforma_amarilla.mtl", (miObjFinal)=> {
+        
+        posicionInicialX15=miObjFinal.position.x = -65;	
+        posicionInicialZ15=miObjFinal.position.z = -10;
+        miObjFinal.position.x = -65;	
+        miObjFinal.position.z = -10;	
+        miObjFinal.scale.x=10;
+        miObjFinal.scale.y=10;
+        miObjFinal.scale.z=10;
+        miObjFinal.rotation.y = THREE.Math.degToRad(30)
+        miObjFinal.name = "15";
+
+        // var amarilla_3 = miObjFinal.clone();
+        // amarilla_3.position.x = -65; 
+        // amarilla_3.position.z = -10; 
+    
+        scene.add(miObjFinal);
+    });
+    
     //PLATAFORMA AZUL
     loadOBJWithMTL("../models/scenario/","plataforma.obj","plataforma_azul.mtl", (miObjFinal)=> {
+        
         posicionInicialX6=miObjFinal.position.x = -43;	
         posicionInicialZ6=miObjFinal.position.z = -90;
-        	
+        miObjFinal.position.x = -43;	
+        miObjFinal.position.z = -90;	
         miObjFinal.scale.x=10;
         miObjFinal.scale.y=10;
         miObjFinal.scale.z=10;
         miObjFinal.rotation.y = THREE.Math.degToRad(30)
         miObjFinal.name = "6";
 
-        var azul_2 = miObjFinal.clone();
-        azul_2.position.x = -54; 
-        azul_2.position.z = -30;
+        // var azul_2 = miObjFinal.clone();
+        // azul_2.position.x = -54; 
+        // azul_2.position.z = -30;
         
-        var azul_3 = miObjFinal.clone();
-        azul_3.position.x = 1; 
-        azul_3.position.z = -10;
+        // var azul_3 = miObjFinal.clone();
+        // azul_3.position.x = 1; 
+        // azul_3.position.z = -10;
     
         scene.add(miObjFinal);
-        scene.add(azul_2);
-        scene.add(azul_3);
+        // scene.add(azul_2);
+        // scene.add(azul_3);
+    });
+
+    //PLATAFORMA AZUL
+    loadOBJWithMTL("../models/scenario/","plataforma.obj","plataforma_azul.mtl", (miObjFinal)=> {
+        
+        posicionInicialX16=miObjFinal.position.x = -54;	
+        posicionInicialZ16=miObjFinal.position.z = -30;
+        miObjFinal.position.x = -54;	
+        miObjFinal.position.z = -30;	
+        miObjFinal.scale.x=10;
+        miObjFinal.scale.y=10;
+        miObjFinal.scale.z=10;
+        miObjFinal.rotation.y = THREE.Math.degToRad(30)
+        miObjFinal.name = "16";
+    
+        scene.add(miObjFinal);
+    });
+
+    //PLATAFORMA AZUL
+    loadOBJWithMTL("../models/scenario/","plataforma.obj","plataforma_azul.mtl", (miObjFinal)=> {
+        
+        posicionInicialX17=miObjFinal.position.x = 1;	
+        posicionInicialZ17=miObjFinal.position.z = -10;
+        miObjFinal.position.x = 1;	
+        miObjFinal.position.z = -10;	
+        miObjFinal.scale.x=10;
+        miObjFinal.scale.y=10;
+        miObjFinal.scale.z=10;
+        miObjFinal.rotation.y = THREE.Math.degToRad(30)
+        miObjFinal.name = "17";
+        
+        scene.add(miObjFinal);
     });
 
         //RAYO ROJO
     loadOBJWithMTL("../models/scenario/","rayo.obj","rayo_rojo.mtl", (miObjFinal)=> {
         
-        miObjFinal.position.x = -9;	
+        miObjFinal.position.x = -15;	
         miObjFinal.position.y = 1.5;	
-        miObjFinal.position.z = -14;	
+        miObjFinal.position.z = -10;	
         miObjFinal.scale.set(1.5,1.5,1.5);
         miObjFinal.name = "rayo_rojo00";
     
@@ -375,9 +736,9 @@ function onStartModels(){
     //RAYO VERDE
     loadOBJWithMTL("../models/scenario/","rayo.obj","rayo_verde.mtl", (miObjFinal)=> {
         
-        miObjFinal.position.x = 9;	
+        miObjFinal.position.x = 15;	
         miObjFinal.position.y = 1.5;	
-        miObjFinal.position.z = -14;	
+        miObjFinal.position.z = -10;	
         miObjFinal.scale.set(1.5,1.5,1.5);
         miObjFinal.name = "rayo_verde00";
     
@@ -557,7 +918,7 @@ function onUpdatePlayer(dt){
     let state = 'idle';
     patito.mixer.update(dt);
 
-    const patitoSpeed = 15;
+    //const patitoSpeed = 15;
     if(keys['w']){
         patito.handler.position.z -= patitoSpeed * dt;
         patito.handler.rotation.y = THREE.Math.degToRad(180);
@@ -611,7 +972,7 @@ function onUpdatePlayer2(dt){
     let state2 = 'idle';
     ranita.mixer.update(dt);
 
-    const ranitaSpeed = 15;
+    //const ranitaSpeed = 15;
     if(keys['i']){
         ranita.handler.position.z -= ranitaSpeed * dt;
         ranita.handler.rotation.y = THREE.Math.degToRad(180);
@@ -815,7 +1176,7 @@ function color(min, max){
         $("#amarillo").hide();
         $("#rosa").hide();
         $("#verde").hide();
-    } else if(rand==4){
+    }else if(rand==4){
         $("#colors").addClass("pink");
         $("#colors").removeClass("red"); 
         $("#colors").removeClass("green");
@@ -830,7 +1191,7 @@ function color(min, max){
         $("#azul").hide();
         $("#amarillo").hide();
         $("#verde").hide();
-    } else if(rand==0){
+    }else if(rand==0){
         $("#colors").addClass("green");
         $("#colors").removeClass("red"); 
         $("#colors").removeClass("blue");
@@ -845,7 +1206,173 @@ function color(min, max){
         $("#morado").hide();
         $("#azul").hide();
         $("#amarillo").hide();
+    }else if (rand==7 ){ 
+        $("#colors").addClass("green");
+        $("#colors").removeClass("red"); 
+        $("#colors").removeClass("blue");
+        $("#colors").removeClass("purple");
+        $("#colors").removeClass("yellow"); 
+        $("#colors").removeClass("pink");
+        $("#colors").removeClass("orange");
+        $("#verde").fadeIn();
+        $("#rosa").hide();
+        $("#rojo").hide();
+        $("#naranja").hide();
+        $("#morado").hide();
+        $("#azul").hide();
+        $("#amarillo").hide();
+    }else if (rand==8 ){ 
+        $("#colors").addClass("green");
+        $("#colors").removeClass("red"); 
+        $("#colors").removeClass("blue");
+        $("#colors").removeClass("purple");
+        $("#colors").removeClass("yellow"); 
+        $("#colors").removeClass("pink");
+        $("#colors").removeClass("orange");
+        $("#verde").fadeIn();
+        $("#rosa").hide();
+        $("#rojo").hide();
+        $("#naranja").hide();
+        $("#morado").hide();
+        $("#azul").hide();
+        $("#amarillo").hide();
+    }else if(rand==9){
+        $("#colors").addClass("purple");
+        $("#colors").removeClass("red"); 
+        $("#colors").removeClass("green");
+        $("#colors").removeClass("blue");
+        $("#colors").removeClass("yellow"); 
+        $("#colors").removeClass("pink");
+        $("#colors").removeClass("orange");
+        $("#morado").fadeIn();
+        $("#azul").hide();
+        $("#amarillo").hide();
+        $("#naranja").hide();
+        $("#rojo").hide();
+        $("#rosa").hide();
+        $("#verde").hide();
+    }else if(rand==10){
+        $("#colors").addClass("orange");
+        $("#colors").removeClass("red"); 
+        $("#colors").removeClass("green");
+        $("#colors").removeClass("purple");
+        $("#colors").removeClass("yellow"); 
+        $("#colors").removeClass("pink");
+        $("#colors").removeClass("blue");
+        $("#naranja").fadeIn();
+        $("#morado").hide();
+        $("#azul").hide();
+        $("#amarillo").hide();
+        $("#rojo").hide();
+        $("#rosa").hide();
+        $("#verde").hide();
+    }else if(rand==11){
+        $("#colors").addClass("orange");
+        $("#colors").removeClass("red"); 
+        $("#colors").removeClass("green");
+        $("#colors").removeClass("purple");
+        $("#colors").removeClass("yellow"); 
+        $("#colors").removeClass("pink");
+        $("#colors").removeClass("blue");
+        $("#naranja").fadeIn();
+        $("#morado").hide();
+        $("#azul").hide();
+        $("#amarillo").hide();
+        $("#rojo").hide();
+        $("#rosa").hide();
+        $("#verde").hide();
+    }else if(rand==12){
+        $("#colors").addClass("pink");
+        $("#colors").removeClass("red"); 
+        $("#colors").removeClass("green");
+        $("#colors").removeClass("purple");
+        $("#colors").removeClass("yellow"); 
+        $("#colors").removeClass("blue");
+        $("#colors").removeClass("orange");
+        $("#rosa").fadeIn();
+        $("#rojo").hide();
+        $("#naranja").hide();
+        $("#morado").hide();
+        $("#azul").hide();
+        $("#amarillo").hide();
+        $("#verde").hide();
+    }else if(rand==13){
+        $("#colors").addClass("pink");
+        $("#colors").removeClass("red"); 
+        $("#colors").removeClass("green");
+        $("#colors").removeClass("purple");
+        $("#colors").removeClass("yellow"); 
+        $("#colors").removeClass("blue");
+        $("#colors").removeClass("orange");
+        $("#rosa").fadeIn();
+        $("#rojo").hide();
+        $("#naranja").hide();
+        $("#morado").hide();
+        $("#azul").hide();
+        $("#amarillo").hide();
+        $("#verde").hide();
+    }else if (rand==14 ){ 
+        $("#colors").addClass("yellow");
+        $("#colors").removeClass("red"); 
+        $("#colors").removeClass("green");
+        $("#colors").removeClass("purple");
+        $("#colors").removeClass("blue"); 
+        $("#colors").removeClass("pink");
+        $("#colors").removeClass("orange");
+        $("#amarillo").fadeIn();
+        $("#azul").hide();
+        $("#morado").hide();
+        $("#naranja").hide();
+        $("#rojo").hide();
+        $("#rosa").hide();
+        $("#verde").hide();
+    }else if (rand==15 ){ 
+        $("#colors").addClass("yellow");
+        $("#colors").removeClass("red"); 
+        $("#colors").removeClass("green");
+        $("#colors").removeClass("purple");
+        $("#colors").removeClass("blue"); 
+        $("#colors").removeClass("pink");
+        $("#colors").removeClass("orange");
+        $("#amarillo").fadeIn();
+        $("#azul").hide();
+        $("#morado").hide();
+        $("#naranja").hide();
+        $("#rojo").hide();
+        $("#rosa").hide();
+        $("#verde").hide();
+    }else if (rand==16 ){ 
+        $("#colors").addClass("blue");
+        $("#colors").removeClass("red"); 
+        $("#colors").removeClass("green");
+        $("#colors").removeClass("purple");
+        $("#colors").removeClass("yellow"); 
+        $("#colors").removeClass("pink");
+        $("#colors").removeClass("orange");
+        $("#azul").fadeIn();
+        $("#amarillo").hide();
+        $("#morado").hide();
+        $("#naranja").hide();
+        $("#rojo").hide();
+        $("#rosa").hide();
+        $("#verde").hide();
+    }else if (rand==17 ){ 
+        $("#colors").addClass("blue");
+        $("#colors").removeClass("red"); 
+        $("#colors").removeClass("green");
+        $("#colors").removeClass("purple");
+        $("#colors").removeClass("yellow"); 
+        $("#colors").removeClass("pink");
+        $("#colors").removeClass("orange");
+        $("#azul").fadeIn();
+        $("#amarillo").hide();
+        $("#morado").hide();
+        $("#naranja").hide();
+        $("#rojo").hide();
+        $("#rosa").hide();
+        $("#verde").hide();
     }
+    
     setTimeout(function(){
         random(rand)
     },10000);
@@ -853,7 +1380,7 @@ function color(min, max){
 }
 
 function random(rand) {
-    for (var i=0 ; i<7; i++ ){
+    for (var i=0 ; i<18; i++ ){
         if(i != rand){
             var plataforma= scene.getObjectByName(i.toString());
             removePlataforma(plataforma);
@@ -868,7 +1395,7 @@ function random(rand) {
 
 }
 function addRandom(random){
-    for (var i=0 ; i<7; i++ ){
+    for (var i=0 ; i<18; i++ ){
         if(i!=random){
             var plataforma= scene.getObjectByName(i.toString());
             addPlataforma(plataforma,i);
@@ -905,6 +1432,45 @@ function addPlataforma(object,i){
     }else if(i==6){
         object.position.x=posicionInicialX6;
         object.position.z=posicionInicialZ6;
+    }else if(i==7){
+        object.position.x=posicionInicialX7;
+        object.position.z=posicionInicialZ7;
+    }
+    else if(i==8){
+        object.position.x=posicionInicialX8;
+        object.position.z=posicionInicialZ8;
+    }else if(i==9){
+        object.position.x=posicionInicialX9;
+        object.position.z=posicionInicialZ9;
+    }else if(i==10){
+        object.position.x=posicionInicialX10;
+        object.position.z=posicionInicialZ10;
+    }else if(i==11){
+        object.position.x=posicionInicialX11;
+        object.position.z=posicionInicialZ11;
+    }
+    else if(i==12){
+        object.position.x=posicionInicialX12;
+        object.position.z=posicionInicialZ12;
+    }
+    else if(i==13){
+        object.position.x=posicionInicialX13;
+        object.position.z=posicionInicialZ13;
+    }else if(i==14){
+        object.position.x=posicionInicialX14;
+        object.position.z=posicionInicialZ14;
+    }
+    else if(i==15){
+        object.position.x=posicionInicialX15;
+        object.position.z=posicionInicialZ15;
+    }
+    else if(i==16){
+        object.position.x=posicionInicialX16;
+        object.position.z=posicionInicialZ16;
+    }
+    else if(i==17){
+        object.position.x=posicionInicialX17;
+        object.position.z=posicionInicialZ17;
     }
 }
 

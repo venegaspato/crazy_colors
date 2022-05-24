@@ -44,6 +44,7 @@ const ranita = {
     }
 }
 var cont=0;
+var patitoSpeed = 15;
 
 //COLLISIONS
 var colisionPlayer2;
@@ -54,6 +55,9 @@ var colisionPlataf3;
 var colisionPlataf4;
 var colisionPlataf5;
 var colisionPlataf6;
+var colisionRayoVerde;
+var colisionRayoRojo;
+var colisionMoneda;
 
 
 //POSICIONES INICIALES EN X
@@ -110,6 +114,9 @@ function collisions(){
     var Plataforma05 = scene.getObjectByName("5");
     var Plataforma06 = scene.getObjectByName("6");
     var playerPato =scene.getObjectByName("patito");
+    var rayoVerde = scene.getObjectByName("rayo_verde00");
+    var rayoRojo = scene.getObjectByName("rayo_rojo00");
+    var moneda = scene.getObjectByName("coin00");
 
     //Bounding Box
     colisionPlataf0 = new THREE.Box3().setFromObject(Plataforma00);
@@ -120,6 +127,9 @@ function collisions(){
     colisionPlataf5 = new THREE.Box3().setFromObject(Plataforma05);
     colisionPlataf6 = new THREE.Box3().setFromObject(Plataforma06);
     colisionPlayer2=new THREE.Box3().setFromObject(playerPato);
+    colisionRayoVerde = new THREE.Box3().setFromObject(rayoVerde);
+    colisionRayoRojo = new THREE.Box3().setFromObject(rayoRojo);
+    colisionMoneda = new THREE.Box3().setFromObject(moneda);
 
     var collisionP2YPL0 = colisionPlayer2.intersectsBox(colisionPlataf0);
     var collisionP2YPL1 = colisionPlayer2.intersectsBox(colisionPlataf1);
@@ -128,6 +138,9 @@ function collisions(){
     var collisionP2YPL4 = colisionPlayer2.intersectsBox(colisionPlataf4);
     var collisionP2YPL5 = colisionPlayer2.intersectsBox(colisionPlataf5);
     var collisionP2YPL6 = colisionPlayer2.intersectsBox(colisionPlataf6);
+    var collisionVERDE = colisionPlayer2.intersectsBox(colisionRayoVerde);
+    var collisionROJO = colisionPlayer2.intersectsBox(colisionRayoRojo);
+    var collisionMONEDA = colisionPlayer2.intersectsBox(colisionMoneda);
 
     if(collisionP2YPL0 || collisionP2YPL1 || collisionP2YPL2 || collisionP2YPL3 || collisionP2YPL4 || collisionP2YPL5 || collisionP2YPL6){
         console.log("intersecta");
@@ -138,6 +151,42 @@ function collisions(){
             clock.stop();
             $("#game_over").fadeIn();
         }
+    }
+
+    if(collisionVERDE){
+        console.log("intersecta");
+        var item= scene.getObjectByName("rayo_verde00");
+        removePlataforma(item);
+        patitoSpeed = patitoSpeed * 1.5;
+
+        // setTimeout(function(){
+        //     random(patitoSpeed)
+        // },2000);
+
+    }
+
+    if(collisionROJO){
+        console.log("intersecta");
+        var item= scene.getObjectByName("rayo_rojo00");
+        removePlataforma(item);
+        patitoSpeed = patitoSpeed  -7;
+
+        // setTimeout(function(){
+        //     random(patitoSpeed)
+        // },2000);
+
+    }
+
+    if(collisionMONEDA){
+        console.log("intersecta");
+        var item= scene.getObjectByName("coin00");
+        removePlataforma(item);
+        patitoSpeed = patitoSpeed * -1;
+
+        // setTimeout(function(){
+        //     random(patitoSpeed)
+        // },2000);
+
     }
 
 
@@ -163,8 +212,8 @@ function onStartModels(){
 
         miObjFinal.position.x = 0;
         miObjFinal.position.y = 1.5;
-        miObjFinal.position.z = -8;
-        miObjFinal.scale.set(1.5,1.5,1.5);
+        miObjFinal.position.z = -16;
+        //miObjFinal.scale.set(1.5,1.5,1.5);
         miObjFinal.name = "coin00";
 
 
@@ -282,10 +331,10 @@ function onStartModels(){
         //RAYO ROJO
     loadOBJWithMTL("../models/scenario/","rayo.obj","rayo_rojo.mtl", (miObjFinal)=> {
         
-        miObjFinal.position.x = -9;	
+        miObjFinal.position.x = -13;	
         miObjFinal.position.y = 1.5;	
         miObjFinal.position.z = -14;	
-        miObjFinal.scale.set(1.5,1.5,1.5);
+        //miObjFinal.scale.set(1.5,1.5,1.5);
         miObjFinal.name = "rayo_rojo00";
     
         scene.add(miObjFinal);
@@ -295,10 +344,10 @@ function onStartModels(){
     //RAYO VERDE
     loadOBJWithMTL("../models/scenario/","rayo.obj","rayo_verde.mtl", (miObjFinal)=> {
         
-        miObjFinal.position.x = 9;	
+        miObjFinal.position.x = 13;	
         miObjFinal.position.y = 1.5;	
         miObjFinal.position.z = -14;	
-        miObjFinal.scale.set(1.5,1.5,1.5);
+        //miObjFinal.scale.set(1.5,1.5,1.5);
         miObjFinal.name = "rayo_verde00";
     
         scene.add(miObjFinal);
@@ -570,7 +619,7 @@ function onUpdatePlayer(dt){
     let state = 'idle';
     patito.mixer.update(dt);
 
-    const patitoSpeed = 15;
+    //const patitoSpeed = 15;
     if(keys['w']){
         patito.handler.position.z -= patitoSpeed * dt;
         patito.handler.rotation.y = THREE.Math.degToRad(180);

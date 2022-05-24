@@ -68,17 +68,6 @@ var colisionPlataf3;
 var colisionPlataf4;
 var colisionPlataf5;
 var colisionPlataf6;
-var colisionPlataf7;
-var colisionPlataf8;
-var colisionPlataf9;
-var colisionPlataf10;
-var colisionPlataf11;
-var colisionPlataf12;
-var colisionPlataf13;
-var colisionPlataf14;
-var colisionPlataf15;
-var colisionPlataf16;
-var colisionPlataf17;
 var colisionRayoVerde;
 var colisionRayoRojo;
 var colisionMoneda;
@@ -91,17 +80,6 @@ var posicionInicialX3 ;
 var posicionInicialX4 ;
 var posicionInicialX5 ;
 var posicionInicialX6 ;
-var posicionInicialX7 ;
-var posicionInicialX8 ;
-var posicionInicialX9 ;
-var posicionInicialX10 ;
-var posicionInicialX11 ;
-var posicionInicialX12 ;
-var posicionInicialX13 ;
-var posicionInicialX14 ;
-var posicionInicialX15 ;
-var posicionInicialX16 ;
-var posicionInicialX17 ;
 
 //POSICIONES INICIALES EN Z
 var posicionInicialZ0 ;
@@ -111,17 +89,6 @@ var posicionInicialZ3 ;
 var posicionInicialZ4 ;
 var posicionInicialZ5 ;
 var posicionInicialZ6 ;
-var posicionInicialZ7 ;
-var posicionInicialZ8 ;
-var posicionInicialZ9 ;
-var posicionInicialZ10 ;
-var posicionInicialZ11 ;
-var posicionInicialZ12 ;
-var posicionInicialZ13 ;
-var posicionInicialZ14 ;
-var posicionInicialZ15 ;
-var posicionInicialZ16 ;
-var posicionInicialZ17 ;
 
 // function onStartFloor(){
 //     const geometry = new THREE.PlaneGeometry(20,20);
@@ -145,6 +112,7 @@ function onLoadAudio(){
         backgroundSound.play(); // inicializa el sonido al instante
     })
     }
+
     function collisions(){
 
         var Plataforma00 = scene.getObjectByName("0");
@@ -154,17 +122,6 @@ function onLoadAudio(){
         var Plataforma04 = scene.getObjectByName("4");
         var Plataforma05 = scene.getObjectByName("5");
         var Plataforma06 = scene.getObjectByName("6");
-        var Plataforma07 = scene.getObjectByName("7");
-        var Plataforma08 = scene.getObjectByName("8");
-        var Plataforma09 = scene.getObjectByName("9");
-        var Plataforma10 = scene.getObjectByName("10");
-        var Plataforma11 = scene.getObjectByName("11");
-        var Plataforma12 = scene.getObjectByName("12");
-        var Plataforma13 = scene.getObjectByName("13");
-        var Plataforma14 = scene.getObjectByName("14");
-        var Plataforma15 = scene.getObjectByName("15");
-        var Plataforma16 = scene.getObjectByName("16");
-        var Plataforma17 = scene.getObjectByName("17");
         var rayoVerde = scene.getObjectByName("rayo_verde00");
         var rayoRojo = scene.getObjectByName("rayo_rojo00");
         var moneda = scene.getObjectByName("coin00");
@@ -178,17 +135,6 @@ function onLoadAudio(){
         colisionPlataf4 = new THREE.Box3().setFromObject(Plataforma04);
         colisionPlataf5 = new THREE.Box3().setFromObject(Plataforma05);
         colisionPlataf6 = new THREE.Box3().setFromObject(Plataforma06);
-        colisionPlataf7 = new THREE.Box3().setFromObject(Plataforma07);
-        colisionPlataf8 = new THREE.Box3().setFromObject(Plataforma08);
-        colisionPlataf9 = new THREE.Box3().setFromObject(Plataforma09);
-        colisionPlataf10 = new THREE.Box3().setFromObject(Plataforma10);
-        colisionPlataf11 = new THREE.Box3().setFromObject(Plataforma11);
-        colisionPlataf12 = new THREE.Box3().setFromObject(Plataforma12);
-        colisionPlataf13 = new THREE.Box3().setFromObject(Plataforma13);
-        colisionPlataf14 = new THREE.Box3().setFromObject(Plataforma14);
-        colisionPlataf15 = new THREE.Box3().setFromObject(Plataforma15);
-        colisionPlataf16 = new THREE.Box3().setFromObject(Plataforma16);
-        colisionPlataf17 = new THREE.Box3().setFromObject(Plataforma17);
         colisionRayoVerde = new THREE.Box3().setFromObject(rayoVerde);
         colisionRayoRojo = new THREE.Box3().setFromObject(rayoRojo);
         colisionMoneda = new THREE.Box3().setFromObject(moneda);
@@ -201,24 +147,11 @@ function onLoadAudio(){
         var collisionP2YPL4 = colisionPlayer2.intersectsBox(colisionPlataf4);
         var collisionP2YPL5 = colisionPlayer2.intersectsBox(colisionPlataf5);
         var collisionP2YPL6 = colisionPlayer2.intersectsBox(colisionPlataf6);
-        var collisionP2YPL7 = colisionPlayer2.intersectsBox(colisionPlataf7);
-        var collisionP2YPL8 = colisionPlayer2.intersectsBox(colisionPlataf8);
-        var collisionP2YPL9 = colisionPlayer2.intersectsBox(colisionPlataf9);
-        var collisionP2YPL10 = colisionPlayer2.intersectsBox(colisionPlataf10);
-        var collisionP2YPL11 = colisionPlayer2.intersectsBox(colisionPlataf11);
-        var collisionP2YPL12 = colisionPlayer2.intersectsBox(colisionPlataf12);
-        var collisionP2YPL13 = colisionPlayer2.intersectsBox(colisionPlataf13);
-        var collisionP2YPL14 = colisionPlayer2.intersectsBox(colisionPlataf14);
-        var collisionP2YPL15 = colisionPlayer2.intersectsBox(colisionPlataf15);
-        var collisionP2YPL16 = colisionPlayer2.intersectsBox(colisionPlataf16);
-        var collisionP2YPL17 = colisionPlayer2.intersectsBox(colisionPlataf17);
         var collisionVERDE = colisionPlayer2.intersectsBox(colisionRayoVerde);
         var collisionROJO = colisionPlayer2.intersectsBox(colisionRayoRojo);
         var collisionMONEDA = colisionPlayer2.intersectsBox(colisionMoneda);
     
-        if(collisionP2YPL0 || collisionP2YPL1 || collisionP2YPL2 || collisionP2YPL3 || collisionP2YPL4 || collisionP2YPL5 || collisionP2YPL6 || 
-            collisionP2YPL7 || collisionP2YPL8 || collisionP2YPL9 || collisionP2YPL10 || collisionP2YPL11 || collisionP2YPL12 || 
-            collisionP2YPL13 || collisionP2YPL14 || collisionP2YPL15 || collisionP2YPL16 || collisionP2YPL17){
+        if(collisionP2YPL0 || collisionP2YPL1 || collisionP2YPL2 || collisionP2YPL3 || collisionP2YPL4 || collisionP2YPL5 || collisionP2YPL6){
             console.log("intersecta");
             
         }else{
@@ -288,7 +221,7 @@ function onStartModels(){
 
         miObjFinal.position.x = 0;
         miObjFinal.position.y = 1.5;
-        miObjFinal.position.z = 22;
+        miObjFinal.position.z = 30;
         miObjFinal.scale.set(1.5,1.5,1.5);
         miObjFinal.name = "coin00";
 
@@ -299,16 +232,15 @@ function onStartModels(){
 
     //PLATAFORMA VERDE
     loadOBJWithMTL("../models/scenario/","plataforma.obj","plataforma_verde.mtl", (miObjFinal)=> {
-        
         	
         miObjFinal.scale.x=10;
         miObjFinal.scale.y=10;
         miObjFinal.scale.z=10;
         
         posicionInicialX0=miObjFinal.position.x = -32;	
-        posicionInicialZ0=miObjFinal.position.z = -70;
+        posicionInicialZ0=miObjFinal.position.z = -30;
         miObjFinal.position.x = -32;	
-        miObjFinal.position.z = -70;
+        miObjFinal.position.z = -30;
         miObjFinal.rotation.y = THREE.Math.degToRad(30)
         miObjFinal.name = "0";
 
@@ -327,49 +259,14 @@ function onStartModels(){
         // scene.add(verde_3);
     });
 
-    //PLATAFORMA VERDE
-    loadOBJWithMTL("../models/scenario/","plataforma.obj","plataforma_verde.mtl", (miObjFinal)=> {
-        
-        	
-        miObjFinal.scale.x=10;
-        miObjFinal.scale.y=10;
-        miObjFinal.scale.z=10;
-        
-        posicionInicialX7=miObjFinal.position.x = 12;	
-        posicionInicialZ7=miObjFinal.position.z = -30;
-        miObjFinal.position.x = 12;	
-        miObjFinal.position.z = -30;
-        miObjFinal.rotation.y = THREE.Math.degToRad(30)
-        miObjFinal.name = "7";
-
-        scene.add(miObjFinal);
-    });
-
-    //PLATAFORMA VERDE
-    loadOBJWithMTL("../models/scenario/","plataforma.obj","plataforma_verde.mtl", (miObjFinal)=> {
-        
-        	
-        miObjFinal.scale.x=10;
-        miObjFinal.scale.y=10;
-        miObjFinal.scale.z=10;
-        
-        posicionInicialX8=miObjFinal.position.x = -32;	
-        posicionInicialZ8=miObjFinal.position.z = -30;
-        miObjFinal.position.x = -32;	
-        miObjFinal.position.z = -30;
-        miObjFinal.rotation.y = THREE.Math.degToRad(30)
-        miObjFinal.name = "8";
-
-        scene.add(miObjFinal);
-    });
-
+   
     //PLATAFORMA MORADA
     loadOBJWithMTL("../models/scenario/","plataforma.obj","plataforma_morada.mtl", (miObjFinal)=> {
         
-        posicionInicialX1=miObjFinal.position.x = -21;
-        posicionInicialZ1=miObjFinal.position.z = -50;
-        miObjFinal.position.x = -21;	
-        miObjFinal.position.z = -50 ;	
+        posicionInicialX1=miObjFinal.position.x = -20;
+        posicionInicialZ1=miObjFinal.position.z = -10;
+        miObjFinal.position.x = -20;	
+        miObjFinal.position.z = -10 ;	
         miObjFinal.scale.x=10;
         miObjFinal.scale.y=10;
         miObjFinal.scale.z=10;
@@ -385,30 +282,13 @@ function onStartModels(){
         //scene.add(morada_2);
     });
 
-    //PLATAFORMA MORADA
-    loadOBJWithMTL("../models/scenario/","plataforma.obj","plataforma_morada.mtl", (miObjFinal)=> {
-        
-        posicionInicialX9=miObjFinal.position.x = -76;
-        posicionInicialZ9=miObjFinal.position.z = -30;
-        miObjFinal.position.x = -76;	
-        miObjFinal.position.z = -30 ;	
-        miObjFinal.scale.x=10;
-        miObjFinal.scale.y=10;
-        miObjFinal.scale.z=10;
-        miObjFinal.rotation.y = THREE.Math.degToRad(30)
-
-        miObjFinal.name = "9";	
-    
-        scene.add(miObjFinal);
-    });
-
     //PLATAFORMA ROJA
     loadOBJWithMTL("../models/scenario/","plataforma.obj","plataforma_roja.mtl", (miObjFinal)=> {
          
         posicionInicialX2=miObjFinal.position.x = -43;	
-        posicionInicialZ2=miObjFinal.position.z = -50;
+        posicionInicialZ2=miObjFinal.position.z = -10;
         miObjFinal.position.x = -43;	
-        miObjFinal.position.z = -50 ;	
+        miObjFinal.position.z = -10 ;	
         miObjFinal.scale.x=10;
         miObjFinal.scale.y=10;
         miObjFinal.scale.z=10;
@@ -423,10 +303,10 @@ function onStartModels(){
     //PLATAFORMA NARANJA
     loadOBJWithMTL("../models/scenario/","plataforma.obj","plataforma_naranja.mtl", (miObjFinal)=> {
         
-        posicionInicialX3=miObjFinal.position.x = 1;	
-        posicionInicialZ3=miObjFinal.position.z = -50;
-        miObjFinal.position.x = 1;	
-        miObjFinal.position.z = -50;	
+        posicionInicialX3=miObjFinal.position.x = -8;	
+        posicionInicialZ3=miObjFinal.position.z = -30;
+        miObjFinal.position.x = -8;	
+        miObjFinal.position.z = -30;	
         miObjFinal.scale.x=10;
         miObjFinal.scale.y=10;
         miObjFinal.scale.z=10;
@@ -445,45 +325,15 @@ function onStartModels(){
         //scene.add(naranja_3);
     });
 
-    //PLATAFORMA NARANJA
-    loadOBJWithMTL("../models/scenario/","plataforma.obj","plataforma_naranja.mtl", (miObjFinal)=> {
-        
-        posicionInicialX10=miObjFinal.position.x = -65;	
-        posicionInicialZ10=miObjFinal.position.z = -50;
-        miObjFinal.position.x = -65;	
-        miObjFinal.position.z = -50;	
-        miObjFinal.scale.x=10;
-        miObjFinal.scale.y=10;
-        miObjFinal.scale.z=10;
-        miObjFinal.rotation.y = THREE.Math.degToRad(30)
-        miObjFinal.name = "10";
-
-        scene.add(miObjFinal);
-    });
-
-     //PLATAFORMA NARANJA
-     loadOBJWithMTL("../models/scenario/","plataforma.obj","plataforma_naranja.mtl", (miObjFinal)=> {
-        
-        posicionInicialX11=miObjFinal.position.z = -43;
-        posicionInicialZ11=miObjFinal.position.z = -10;
-        miObjFinal.position.x = -43;	
-        miObjFinal.position.z = -10;	
-        miObjFinal.scale.x=10;
-        miObjFinal.scale.y=10;
-        miObjFinal.scale.z=10;
-        miObjFinal.rotation.y = THREE.Math.degToRad(30)
-        miObjFinal.name = "11";
-
-        scene.add(miObjFinal);
-    });
+   
 
     //PLATAFORMA ROSA
     loadOBJWithMTL("../models/scenario/","plataforma.obj","plataforma_rosa.mtl", (miObjFinal)=> {
         
-        posicionInicialX4=miObjFinal.position.x = -54;	
-        posicionInicialZ4=miObjFinal.position.z = -70;	
-        miObjFinal.position.x = -54;	
-        miObjFinal.position.z = -70;	
+        posicionInicialX4=miObjFinal.position.x = -56;	
+        posicionInicialZ4=miObjFinal.position.z = -30;	
+        miObjFinal.position.x = -56;	
+        miObjFinal.position.z = -30;	
         miObjFinal.scale.x=10;
         miObjFinal.scale.y=10;
         miObjFinal.scale.z=10;
@@ -503,45 +353,13 @@ function onStartModels(){
         //scene.add(rosa_3);
     });
 
-     //PLATAFORMA ROSA
-     loadOBJWithMTL("../models/scenario/","plataforma.obj","plataforma_rosa.mtl", (miObjFinal)=> {
-        
-        posicionInicialX12=miObjFinal.position.x = -10;	
-        posicionInicialZ12=miObjFinal.position.z = -70;	
-        miObjFinal.position.x = -10;	
-        miObjFinal.position.z = -70;	
-        miObjFinal.scale.x=10;
-        miObjFinal.scale.y=10;
-        miObjFinal.scale.z=10;
-        miObjFinal.rotation.y = THREE.Math.degToRad(30)
-        miObjFinal.name = "12";
-    
-        scene.add(miObjFinal);
-    });
-
-     //PLATAFORMA ROSA
-     loadOBJWithMTL("../models/scenario/","plataforma.obj","plataforma_rosa.mtl", (miObjFinal)=> {
-        
-        posicionInicialX13=miObjFinal.position.x = -21;	
-        posicionInicialZ13=miObjFinal.position.z = -10;	
-        miObjFinal.position.x = -21;	
-        miObjFinal.position.z = -10;	
-        miObjFinal.scale.x=10;
-        miObjFinal.scale.y=10;
-        miObjFinal.scale.z=10;
-        miObjFinal.rotation.y = THREE.Math.degToRad(30)
-        miObjFinal.name = "13";
-    
-        scene.add(miObjFinal);
-    });
-
     //PLATAFORMA AMARILLA
     loadOBJWithMTL("../models/scenario/","plataforma.obj","plataforma_amarilla.mtl", (miObjFinal)=> {
         
-        posicionInicialX5=miObjFinal.position.x = -21;	
-        posicionInicialZ5=miObjFinal.position.z = -90;
-        miObjFinal.position.x = -21;	
-        miObjFinal.position.z = -90;	
+        posicionInicialX5=miObjFinal.position.x = -17;	
+        posicionInicialZ5=miObjFinal.position.z = -50;
+        miObjFinal.position.x = -17;	
+        miObjFinal.position.z = -50;	
         miObjFinal.scale.x=10;
         miObjFinal.scale.y=10;
         miObjFinal.scale.z=10;
@@ -561,53 +379,15 @@ function onStartModels(){
         // scene.add(amarilla_3);
     });
 
-    //PLATAFORMA AMARILLA
-    loadOBJWithMTL("../models/scenario/","plataforma.obj","plataforma_amarilla.mtl", (miObjFinal)=> {
-        
-        posicionInicialX14=miObjFinal.position.x = -10;	
-        posicionInicialZ14=miObjFinal.position.z = -30;
-        miObjFinal.position.x = -10;	
-        miObjFinal.position.z = -30;	
-        miObjFinal.scale.x=10;
-        miObjFinal.scale.y=10;
-        miObjFinal.scale.z=10;
-        miObjFinal.rotation.y = THREE.Math.degToRad(30)
-        miObjFinal.name = "14";
-
-        // var amarilla_3 = miObjFinal.clone();
-        // amarilla_3.position.x = -65; 
-        // amarilla_3.position.z = -10; 
     
-        scene.add(miObjFinal);
-    });
-
-    //PLATAFORMA AMARILLA
-    loadOBJWithMTL("../models/scenario/","plataforma.obj","plataforma_amarilla.mtl", (miObjFinal)=> {
-        
-        posicionInicialX15=miObjFinal.position.x = -65;	
-        posicionInicialZ15=miObjFinal.position.z = -10;
-        miObjFinal.position.x = -65;	
-        miObjFinal.position.z = -10;	
-        miObjFinal.scale.x=10;
-        miObjFinal.scale.y=10;
-        miObjFinal.scale.z=10;
-        miObjFinal.rotation.y = THREE.Math.degToRad(30)
-        miObjFinal.name = "15";
-
-        // var amarilla_3 = miObjFinal.clone();
-        // amarilla_3.position.x = -65; 
-        // amarilla_3.position.z = -10; 
-    
-        scene.add(miObjFinal);
-    });
     
     //PLATAFORMA AZUL
     loadOBJWithMTL("../models/scenario/","plataforma.obj","plataforma_azul.mtl", (miObjFinal)=> {
         
         posicionInicialX6=miObjFinal.position.x = -43;	
-        posicionInicialZ6=miObjFinal.position.z = -90;
+        posicionInicialZ6=miObjFinal.position.z = -50;
         miObjFinal.position.x = -43;	
-        miObjFinal.position.z = -90;	
+        miObjFinal.position.z = -50;	
         miObjFinal.scale.x=10;
         miObjFinal.scale.y=10;
         miObjFinal.scale.z=10;
@@ -627,44 +407,12 @@ function onStartModels(){
         // scene.add(azul_3);
     });
 
-    //PLATAFORMA AZUL
-    loadOBJWithMTL("../models/scenario/","plataforma.obj","plataforma_azul.mtl", (miObjFinal)=> {
-        
-        posicionInicialX16=miObjFinal.position.x = -54;	
-        posicionInicialZ16=miObjFinal.position.z = -30;
-        miObjFinal.position.x = -54;	
-        miObjFinal.position.z = -30;	
-        miObjFinal.scale.x=10;
-        miObjFinal.scale.y=10;
-        miObjFinal.scale.z=10;
-        miObjFinal.rotation.y = THREE.Math.degToRad(30)
-        miObjFinal.name = "16";
-    
-        scene.add(miObjFinal);
-    });
-
-    //PLATAFORMA AZUL
-    loadOBJWithMTL("../models/scenario/","plataforma.obj","plataforma_azul.mtl", (miObjFinal)=> {
-        
-        posicionInicialX17=miObjFinal.position.x = 1;	
-        posicionInicialZ17=miObjFinal.position.z = -10;
-        miObjFinal.position.x = 1;	
-        miObjFinal.position.z = -10;	
-        miObjFinal.scale.x=10;
-        miObjFinal.scale.y=10;
-        miObjFinal.scale.z=10;
-        miObjFinal.rotation.y = THREE.Math.degToRad(30)
-        miObjFinal.name = "17";
-        
-        scene.add(miObjFinal);
-    });
-
-        //RAYO ROJO
+     //RAYO ROJO
     loadOBJWithMTL("../models/scenario/","rayo.obj","rayo_rojo.mtl", (miObjFinal)=> {
         
         miObjFinal.position.x = -15;	
         miObjFinal.position.y = 1.5;	
-        miObjFinal.position.z = -10;	
+        miObjFinal.position.z = 20;	
         miObjFinal.scale.set(1.5,1.5,1.5);
         miObjFinal.name = "rayo_rojo00";
     
@@ -677,7 +425,7 @@ function onStartModels(){
         
         miObjFinal.position.x = 15;	
         miObjFinal.position.y = 1.5;	
-        miObjFinal.position.z = -10;	
+        miObjFinal.position.z = 20;	
         miObjFinal.scale.set(1.5,1.5,1.5);
         miObjFinal.name = "rayo_verde00";
     
@@ -714,8 +462,8 @@ function onStartEnemy(){
             //enemy.action.attack.play();
             loadedAssets++;
         });
-     model.position.x = 5;
-     model.position.z = -7;
+     model.position.x = 2;
+     model.position.z = 25;
 
      model.name = "enemy_model";
         loadedAssets++;
@@ -1060,171 +808,6 @@ function color(min, max){
         $("#morado").hide();
         $("#azul").hide();
         $("#amarillo").hide();
-    }else if (rand==7 ){ 
-        $("#colors").addClass("green");
-        $("#colors").removeClass("red"); 
-        $("#colors").removeClass("blue");
-        $("#colors").removeClass("purple");
-        $("#colors").removeClass("yellow"); 
-        $("#colors").removeClass("pink");
-        $("#colors").removeClass("orange");
-        $("#verde").fadeIn();
-        $("#rosa").hide();
-        $("#rojo").hide();
-        $("#naranja").hide();
-        $("#morado").hide();
-        $("#azul").hide();
-        $("#amarillo").hide();
-    }else if (rand==8 ){ 
-        $("#colors").addClass("green");
-        $("#colors").removeClass("red"); 
-        $("#colors").removeClass("blue");
-        $("#colors").removeClass("purple");
-        $("#colors").removeClass("yellow"); 
-        $("#colors").removeClass("pink");
-        $("#colors").removeClass("orange");
-        $("#verde").fadeIn();
-        $("#rosa").hide();
-        $("#rojo").hide();
-        $("#naranja").hide();
-        $("#morado").hide();
-        $("#azul").hide();
-        $("#amarillo").hide();
-    }else if(rand==9){
-        $("#colors").addClass("purple");
-        $("#colors").removeClass("red"); 
-        $("#colors").removeClass("green");
-        $("#colors").removeClass("blue");
-        $("#colors").removeClass("yellow"); 
-        $("#colors").removeClass("pink");
-        $("#colors").removeClass("orange");
-        $("#morado").fadeIn();
-        $("#azul").hide();
-        $("#amarillo").hide();
-        $("#naranja").hide();
-        $("#rojo").hide();
-        $("#rosa").hide();
-        $("#verde").hide();
-    }else if(rand==10){
-        $("#colors").addClass("orange");
-        $("#colors").removeClass("red"); 
-        $("#colors").removeClass("green");
-        $("#colors").removeClass("purple");
-        $("#colors").removeClass("yellow"); 
-        $("#colors").removeClass("pink");
-        $("#colors").removeClass("blue");
-        $("#naranja").fadeIn();
-        $("#morado").hide();
-        $("#azul").hide();
-        $("#amarillo").hide();
-        $("#rojo").hide();
-        $("#rosa").hide();
-        $("#verde").hide();
-    }else if(rand==11){
-        $("#colors").addClass("orange");
-        $("#colors").removeClass("red"); 
-        $("#colors").removeClass("green");
-        $("#colors").removeClass("purple");
-        $("#colors").removeClass("yellow"); 
-        $("#colors").removeClass("pink");
-        $("#colors").removeClass("blue");
-        $("#naranja").fadeIn();
-        $("#morado").hide();
-        $("#azul").hide();
-        $("#amarillo").hide();
-        $("#rojo").hide();
-        $("#rosa").hide();
-        $("#verde").hide();
-    }else if(rand==12){
-        $("#colors").addClass("pink");
-        $("#colors").removeClass("red"); 
-        $("#colors").removeClass("green");
-        $("#colors").removeClass("purple");
-        $("#colors").removeClass("yellow"); 
-        $("#colors").removeClass("blue");
-        $("#colors").removeClass("orange");
-        $("#rosa").fadeIn();
-        $("#rojo").hide();
-        $("#naranja").hide();
-        $("#morado").hide();
-        $("#azul").hide();
-        $("#amarillo").hide();
-        $("#verde").hide();
-    }else if(rand==13){
-        $("#colors").addClass("pink");
-        $("#colors").removeClass("red"); 
-        $("#colors").removeClass("green");
-        $("#colors").removeClass("purple");
-        $("#colors").removeClass("yellow"); 
-        $("#colors").removeClass("blue");
-        $("#colors").removeClass("orange");
-        $("#rosa").fadeIn();
-        $("#rojo").hide();
-        $("#naranja").hide();
-        $("#morado").hide();
-        $("#azul").hide();
-        $("#amarillo").hide();
-        $("#verde").hide();
-    }else if (rand==14 ){ 
-        $("#colors").addClass("yellow");
-        $("#colors").removeClass("red"); 
-        $("#colors").removeClass("green");
-        $("#colors").removeClass("purple");
-        $("#colors").removeClass("blue"); 
-        $("#colors").removeClass("pink");
-        $("#colors").removeClass("orange");
-        $("#amarillo").fadeIn();
-        $("#azul").hide();
-        $("#morado").hide();
-        $("#naranja").hide();
-        $("#rojo").hide();
-        $("#rosa").hide();
-        $("#verde").hide();
-    }else if (rand==15 ){ 
-        $("#colors").addClass("yellow");
-        $("#colors").removeClass("red"); 
-        $("#colors").removeClass("green");
-        $("#colors").removeClass("purple");
-        $("#colors").removeClass("blue"); 
-        $("#colors").removeClass("pink");
-        $("#colors").removeClass("orange");
-        $("#amarillo").fadeIn();
-        $("#azul").hide();
-        $("#morado").hide();
-        $("#naranja").hide();
-        $("#rojo").hide();
-        $("#rosa").hide();
-        $("#verde").hide();
-    }else if (rand==16 ){ 
-        $("#colors").addClass("blue");
-        $("#colors").removeClass("red"); 
-        $("#colors").removeClass("green");
-        $("#colors").removeClass("purple");
-        $("#colors").removeClass("yellow"); 
-        $("#colors").removeClass("pink");
-        $("#colors").removeClass("orange");
-        $("#azul").fadeIn();
-        $("#amarillo").hide();
-        $("#morado").hide();
-        $("#naranja").hide();
-        $("#rojo").hide();
-        $("#rosa").hide();
-        $("#verde").hide();
-    }else if (rand==17 ){ 
-        $("#colors").addClass("blue");
-        $("#colors").removeClass("red"); 
-        $("#colors").removeClass("green");
-        $("#colors").removeClass("purple");
-        $("#colors").removeClass("yellow"); 
-        $("#colors").removeClass("pink");
-        $("#colors").removeClass("orange");
-        $("#azul").fadeIn();
-        $("#amarillo").hide();
-        $("#morado").hide();
-        $("#naranja").hide();
-        $("#rojo").hide();
-        $("#rosa").hide();
-        $("#verde").hide();
     }
     
     setTimeout(function(){
@@ -1286,45 +869,6 @@ function addPlataforma(object,i){
     }else if(i==6){
         object.position.x=posicionInicialX6;
         object.position.z=posicionInicialZ6;
-    }else if(i==7){
-        object.position.x=posicionInicialX7;
-        object.position.z=posicionInicialZ7;
-    }
-    else if(i==8){
-        object.position.x=posicionInicialX8;
-        object.position.z=posicionInicialZ8;
-    }else if(i==9){
-        object.position.x=posicionInicialX9;
-        object.position.z=posicionInicialZ9;
-    }else if(i==10){
-        object.position.x=posicionInicialX10;
-        object.position.z=posicionInicialZ10;
-    }else if(i==11){
-        object.position.x=posicionInicialX11;
-        object.position.z=posicionInicialZ11;
-    }
-    else if(i==12){
-        object.position.x=posicionInicialX12;
-        object.position.z=posicionInicialZ12;
-    }
-    else if(i==13){
-        object.position.x=posicionInicialX13;
-        object.position.z=posicionInicialZ13;
-    }else if(i==14){
-        object.position.x=posicionInicialX14;
-        object.position.z=posicionInicialZ14;
-    }
-    else if(i==15){
-        object.position.x=posicionInicialX15;
-        object.position.z=posicionInicialZ15;
-    }
-    else if(i==16){
-        object.position.x=posicionInicialX16;
-        object.position.z=posicionInicialZ16;
-    }
-    else if(i==17){
-        object.position.x=posicionInicialX17;
-        object.position.z=posicionInicialZ17;
     }
     
 }

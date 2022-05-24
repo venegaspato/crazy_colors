@@ -46,12 +46,13 @@
     </head>
 
     <body>
+        <script type="text/javascript" src="/js/Functions/particles.js"></script>
         <div class="contenido-general">
 
             <center>
             <div class="instrucciones">
-                <div class="instrucciones_p1">
-                    <img src="../img/Player1.png" class="instrucciones-image" alt="">
+                <div class="instrucciones_p1 ">
+                    <img src="../img/Player1.png" class="instrucciones-image solo"   alt="" >
                 </div>
 
                 <div class="time-section">
@@ -72,9 +73,9 @@
                 
                 </div>
 
-                <div class="instrucciones_p2">
+                <!-- <div class="instrucciones_p2">
                     <img src="../img/Player2.png" class="instrucciones-image" alt="">
-                </div>
+                </div> -->
             </div>
 
             <input id="btn_pause" class="btn_pausa"type="image" src="../img/pausa_btn.png">
@@ -115,7 +116,7 @@
                                 <div  class=" col-6 col-md-4" data-value="0">
                                     <div class=" btn-design">
                                      
-                                        <input  class="btn-design btn-design_audio dos"type="image" src="../img/reiniciar_btn.png" onclick="location.href='./level_01.html'">
+                                        <input  class="btn-design btn-design_audio dos"type="image" src="../img/reiniciar_btn.png" onclick="location.href='./level_01_solo.html'">
                                         <input  class="btn-design btn-design_audio tres"type="image" src="../img/home_btn.png" onclick="location.href='./principal.html'">
                                         <input  class="btn-design btn-design_audio tres"type="image" src="../img/compartir_btn.png" onclick="shareFB();">
                                         
@@ -156,7 +157,8 @@
                 $("#pause").hide();
             });
 
-	 
+            </script>
+
       
     </body>
 
